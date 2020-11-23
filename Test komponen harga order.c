@@ -7,7 +7,7 @@
 #define rowNum 500000
 
 int main(){
-    //DAFTAR KOMPONEN
+   //DAFTAR KOMPONEN
     //1
     const char *motherboard[] = {"Asus Prime 27", "AsusROG Crosshair", "GigaByte B365M", "GigaByte B450M"}; 
     const int hmotherboard[] = {5650000, 5530000, 5786900, 6458200};
@@ -31,10 +31,9 @@ int main(){
     const int hstorage[] = {5650000, 5530000, 5786900, 6458200};
      //8       
     const char *psu[] = {"ATX 450 Watt", "ANS 500 Watt", "AVU Power 500 Watt", "Hein Power Supply 450 Watt"};  
-    const int hpsu[] = {5650000, 5530000, 5786900, 6458200};       
-    
-    const int randomI[] = {1, 2, 3, 4} ;  
-    
+    const int hpsu[] = {5650000, 5530000, 5786900, 6458200};   
+
+    const int randomI[] = {1, 2, 3, 4} ;                        
     ///////////////////////////////////////////////////////////
 
     //SIZE OF ARRAY
@@ -46,7 +45,6 @@ int main(){
     int gpu_count = sizeof(gpu)/sizeof(gpu[0]);
     int stor_count = sizeof(storage)/sizeof(storage[0]);
     int psu_count = sizeof(psu)/sizeof(psu[0]);
-    int harga_count = sizeof(harga)/sizeof(harga[0]);
     int indexIsembarang = sizeof(randomI)/sizeof(randomI[0]);
     ////////////////////////////////////////////////////////////
 
@@ -61,29 +59,31 @@ int main(){
     const char *randomgpu;
     const char *randomstor;
     const char *randompsu;
-    const int *randomharga;
     const int *IdxSembarang;
-    
-    ///////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
 
     /* RANDOMIZE STRING */
-    randommoth = motherboard[rand()%mb_count];
-    randomcpu = cpu[rand()%cpu_count];
+    randommoth = motherboard[rand()%mb_count];  
+    randomcpu = cpu[rand()%cpu_count];  
     randommem = memory[rand()%mem_count];
     randomcooler = cpucooler[rand()%cool_count];
     randomcase = cases[rand()%case_count];
     randomgpu = gpu[rand()%gpu_count];
     randomstor = storage[rand()%stor_count];
     randompsu = psu[rand()%psu_count];
-    randomharga = harga[rand()%harga_count];
     IdxSembarang = randomI[rand()%indexIsembarang];
     ////////////////////////////////////////////////////
 
+    const char *DaftarKomponen[] = {randommoth, randomcpu, randommem, randomcooler, randomcase
+                                    , randomgpu, randomstor, randompsu};  
+    
+
     for (int i =0; i<4;i++){
         if (randomI[i] == IdxSembarang){
-            printf("Harga Komponen %s adalah %d", motherboard[i], hmotherboard[i]);
+            printf("Harga Komponen %s adalah %d", cpu[i], hcpu[i]);
         }
     }
+    
 }   
 
     /////////////////////MAIN FUNCTION//////////////////
