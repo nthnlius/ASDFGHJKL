@@ -10,28 +10,28 @@ int main(){
     //DAFTAR KOMPONEN
     //1
     const char *motherboard[] = {"Asus Prime 27", "AsusROG Crosshair", "GigaByte B365M", "GigaByte B450M"}; 
-    const int motherboard[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hmotherboard[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
     //2     
     const char *cpu[] = {"Intel core I3 7020", "AMD Ryzen 3", "Intel Core I5 9070", "AMD Ryzen 7"};   
-    const int cpu[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hcpu[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
     //3            
     const char *memory[] = {"Samsung KKN 4GB", "Asus DSA 4GB", "Intel DI 4GB", "Asus PNR 4GB"};  
-    const int memory[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hmemory[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
     //4            
     const char *cpucooler[] = {"Asus Cooler Fan", "Samsung Ultra Fan", "Eyota Fan", "Alseye H120D"}; 
-    const int cpucooler[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hcpucooler[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
     //5     
     const char *cases[] = {"Asus ROG Case Limited", "IBox Case Ori", "Samsung Case UX", "Asus EXP Case"}; 
-    const int cases[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hcases[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
     //6      
     const char *gpu[] = {"NVIDIA 1080 GTX", "Celeron 2030 X", "Intel 620 UHD", "NVIDA Geforce 2080 TI"}; 
-    const int gpu[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hgpu[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
     //7              
     const char *storage[] = {"Samsung 1 TB SATA", "ASUS STRG 500 GB", "Dell SSD 250 GB", "Samsung SSD 500 GB"};
-    const int storage[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
+    const int hstorage[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};
      //8       
     const char *psu[] = {"ATX 450 Watt", "ANS 500 Watt", "AVU Power 500 Watt", "Hein Power Supply 450 Watt"};  
-    const int psu[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};                          
+    const int hpsu[] = {5650000, 5530000, 5786900, 6458200, 4987200, 5200900, 6290000, 7100000};                          
     ///////////////////////////////////////////////////////////
 
     //SIZE OF ARRAY
