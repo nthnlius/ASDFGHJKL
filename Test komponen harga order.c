@@ -10,10 +10,10 @@ int main(){
     //DAFTAR KOMPONEN
     //1
     const char *motherboard[] = {"Asus Prime 27", "AsusROG Crosshair", "GigaByte B365M", "GigaByte B450M"}; 
-    const int hmotherboard[] = {2250000, 3250000, 1685000, 1180000};
+    const int hmotherboard[] = {5650000, 5530000, 5786900, 6458200};
     //2     
     const char *cpu[] = {"Intel core I3 7020", "AMD Ryzen 3", "Intel Core I5 9070", "AMD Ryzen 7"};   
-    const int hcpu[] = {1329000, 1800000, 2300000, 3500000};
+    const int hcpu[] = {5650000, 5530000, 5786900, 6458200};
     //3            
     const char *memory[] = {"Samsung KKN 4GB", "Asus DSA 4GB", "Intel DI 4GB", "Asus PNR 4GB"};  
     const int hmemory[] = {5650000, 5530000, 5786900, 6458200};
@@ -31,7 +31,10 @@ int main(){
     const int hstorage[] = {5650000, 5530000, 5786900, 6458200};
      //8       
     const char *psu[] = {"ATX 450 Watt", "ANS 500 Watt", "AVU Power 500 Watt", "Hein Power Supply 450 Watt"};  
-    const int hpsu[] = {5650000, 5530000, 5786900, 6458200};                          
+    const int hpsu[] = {5650000, 5530000, 5786900, 6458200};       
+    
+    const int randomI[] = {1, 2, 3, 4} ;  
+    
     ///////////////////////////////////////////////////////////
 
     //SIZE OF ARRAY
@@ -44,6 +47,7 @@ int main(){
     int stor_count = sizeof(storage)/sizeof(storage[0]);
     int psu_count = sizeof(psu)/sizeof(psu[0]);
     int harga_count = sizeof(harga)/sizeof(harga[0]);
+    int indexIsembarang = sizeof(randomI)/sizeof(randomI[0]);
     ////////////////////////////////////////////////////////////
 
     //CONST CHAR FOR RANDOMIZE
@@ -58,6 +62,8 @@ int main(){
     const char *randomstor;
     const char *randompsu;
     const int *randomharga;
+    const int *IdxSembarang;
+    
     ///////////////////////////////////////////////////////////
 
     /* RANDOMIZE STRING */
@@ -70,9 +76,14 @@ int main(){
     randomstor = storage[rand()%stor_count];
     randompsu = psu[rand()%psu_count];
     randomharga = harga[rand()%harga_count];
+    IdxSembarang = randomI[rand()%indexIsembarang];
     ////////////////////////////////////////////////////
 
-    printf("Total yang harus dibayar %d", randomharga);
+    for (int i =0; i<4;i++){
+        if (randomI[i] == IdxSembarang){
+            printf("Harga Komponen %s adalah %d", motherboard[i], hmotherboard[i]);
+        }
+    }
 }   
 
     /////////////////////MAIN FUNCTION//////////////////
