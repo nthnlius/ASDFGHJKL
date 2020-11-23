@@ -10,10 +10,10 @@ int main(){
     //DAFTAR KOMPONEN
     //1
     const char *motherboard[] = {"Asus Prime 27", "AsusROG Crosshair", "GigaByte B365M", "GigaByte B450M"}; 
-    const int hmotherboard[] = {5650000, 5530000, 5786900, 6458200};
+    const int hmotherboard[] = {2250000, 3250000, 1685000, 1180000};
     //2     
     const char *cpu[] = {"Intel core I3 7020", "AMD Ryzen 3", "Intel Core I5 9070", "AMD Ryzen 7"};   
-    const int hcpu[] = {5650000, 5530000, 5786900, 6458200};
+    const int hcpu[] = {1329000, 1800000, 2300000, 3500000};
     //3            
     const char *memory[] = {"Samsung KKN 4GB", "Asus DSA 4GB", "Intel DI 4GB", "Asus PNR 4GB"};  
     const int hmemory[] = {5650000, 5530000, 5786900, 6458200};
