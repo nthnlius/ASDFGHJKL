@@ -37,7 +37,7 @@ void Ignore_Blank();
 	F.S. : CC != BLANK atau CC == MARK
 */
 
-void STARTKATA();
+void STARTKATA(char* filename);
 /*	I.S. : CC sembarang
 	F.S  : Salah satu dari dua kondisi dibawah.
 		1. EndKata = true dan CC == Mark

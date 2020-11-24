@@ -1,42 +1,47 @@
- 
-#ifndef MESINKAR_H
-#define MESINKAR_H
+#ifndef __MESIN_KAR__
+#define __MESIN_KAR__
+
 #include "boolean.h"
 #include <stdio.h>
-#define mark '.'
+#define MARK '.'
+
+/* State Mesin */
+extern char CC;
+//extern boolean EOP;
 
 /*
-	DESKRIPSI
-
-	Buatlah mesin karakter yang mengakuisisi input sampai ditemukan mark (end). 
-	Input akan di-supply dari standard input-output dalam bahasa C (stdin), contoh input adalah
-	"praktikum if2110."
-	"   praktikum     if2110    ."
-	Dijamin selalu terdapat tanda akhir input yaitu mark "." pada akhir input
-	Input merupakan kombinasi karakter yang merupakan anggota dari {a-z, A-Z, 0-9, ' ', '.'}
-
-	Ikutilah Header ini karena telah disesuaikan untuk autograding
-
+  pada implementasi (mesin_kar.c), perlu ditambahkan variabel static 
+  global yang menyimpan pembacaan file pita.
 */
 
-//definisi states
-char CC;
+void START(char* filename);
+/* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
+Karakter pertama yang ada pada pita posisinya adalah pada jendela.
+filename merupakan nama file yang berisi pita karakter
+I.S. : sembarang
+F.S. : CC adalah karakter pertama pada pita
 
-void START();
-/* 	I.S. sembarang
-	F.S. CC adalah karakter pertama pita (stdin)
-		 Bila Kondisi EOP terpenuhi, nyalakan EOP
-*/
+Jika CC != MARK maka EOP akan padam (false)
+Jika CC = MARK maka EOP akan menyala (true) */
 
 void ADV();
-/*	I.S. CC!=mark
-	F.S. CC adalah karakter berikutnya yang dapat diakuisisi
-		 contoh untuk pita "IF", bila CC menunjuk 'I', maka CC berikutnya adalah 'F' 
-		 Bila Kondisi EOP terpenuhi, nyalakan EOP
+/* Pita dimajukan satu karakter.
+I.S. : Karakter pada jendela = CC, CC != MARK
+F.S. : CC adalah karakter berikutnya dari CC yang lama,
+
+CC mungkin = MARK
+Jika CC = MARK maka EOP akan menyala (true) */
+
+char GetCC();
+/* Mengembalikan karakter yang sedang terbaca di jendela.
+I.S. : Karakter pada jendela = CC, CC != MARK
+F.S. : mengembalikan karakter yang sedang terbaca di jendela
 */
 
 boolean EOP();
-/*	true jika CC==mark */
+/* Mengecek apakah pita telah selesai dibaca
+I.S. : Pita telah terbaca
+F.S. : Menegmbalikan true jika pita telah selesai terbaca, false jika sebaliknya
+*/
 
 #endif
-

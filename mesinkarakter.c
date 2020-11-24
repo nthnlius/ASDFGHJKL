@@ -1,26 +1,50 @@
 
 #include "mesinkarakter.h"
+static int retval;
+static FILE * pita;
+char CC;
+void START(char* filename)
+/* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
+Karakter pertama yang ada pada pita posisinya adalah pada jendela.
+filename merupakan nama file yang berisi pita karakter
+I.S. : sembarang
+F.S. : CC adalah karakter pertama pada pita
 
-extern void START() {
-/* 	I.S. sembarang
-	F.S. CC adalah karakter pertama pita (stdin)
-		 Bila Kondisi EOP terpenuhi, nyalakan EOP
-*/
-	scanf("%c",&CC);
+Jika CC != MARK maka EOP akan padam (false)
+Jika CC = MARK maka EOP akan menyala (true) */
+{
+    pita = fopen(filename,"r");
+    ADV();
 }
+void ADV()
+/* Pita dimajukan satu karakter.
+I.S. : Karakter pada jendela = CC, CC != MARK
+F.S. : CC adalah karakter berikutnya dari CC yang lama,
 
-extern void ADV() {
-/*	I.S. CC!=mark
-	F.S. CC adalah karakter berikutnya yang dapat diakuisisi
-		 contoh untuk pita "IF", bila CC menunjuk 'I', maka CC berikutnya adalah 'F' 
-		 Bila Kondisi EOP terpenuhi, nyalakan EOP
-*/
-	//ALGORITMA
-	if (!EOP())
-		scanf("%c",&CC);
+CC mungkin = MARK
+Jika CC = MARK maka EOP akan menyala (true) */
+{
+	{
+    retval = fscanf(pita,"%c",&CC);
+    //EOP = (CC == MARK);
+    if (EOP()) {
+        fclose(pita);
+    }
 }
-
-extern boolean EOP() {
-/*	true jika CC==mark */
-	return (CC==mark);
+}
+char GetCC()
+/* Mengembalikan karakter yang sedang terbaca di jendela.
+I.S. : Karakter pada jendela = CC, CC != MARK
+F.S. : mengembalikan karakter yang sedang terbaca di jendela
+*/
+{
+	return CC;
+}
+boolean EOP()
+/* Mengecek apakah pita telah selesai dibaca
+I.S. : Pita telah terbaca
+F.S. : Menegmbalikan true jika pita telah selesai terbaca, false jika sebaliknya
+*/
+{
+	return (CC == MARK);
 }

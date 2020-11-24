@@ -14,7 +14,7 @@ void Ignore_Blank() {
 		EndKata=true;
 }
 
-void STARTKATA() {
+void STARTKATA(char* filename) {
 /*	I.S. : CC sembarang
 	F.S  : Salah satu dari dua kondisi dibawah.
 		1. EndKata = true dan CC == Mark
@@ -23,15 +23,26 @@ void STARTKATA() {
 		Keterangan: CC mengacu pada yang disebut pada mesinkarakter
 */
 	//ALGORITMA
-	START();
-	if (!EOP()) {
-		Ignore_Blank();
-		EndKata=false;
-		SalinKata();
-	}
-	else {
-		EndKata=true;
-	}
+// 	START(filename);
+// 	Ignore_Blank();
+// 	if (!EOP()) {
+// 		EndKata=false;
+// 		SalinKata();
+// 	}
+// 	else {
+// 		EndKata=true;
+// 	}
+// }
+{
+    START(filename);
+    Ignore_Blank();
+    if (CC == MARK){
+        EndKata = true;
+    } else {
+        EndKata = false;
+        ADVKATA();
+    }
+}
 }
 
 void ADVKATA() {
@@ -42,17 +53,15 @@ void ADVKATA() {
 	CC karakter pertama sesudah karakter terakhir kata
 */
 	//ALGORITMA
-	if (CC==mark) {
-		EndKata=true;
-		int i;
-		for (i=0; i<CKata.Length; i++)
-			CKata.TabKata[i]='\0';
-	}
-	else {
-		Ignore_Blank();
-		SalinKata();
-	}
-}
+{
+    Ignore_Blank();
+    if (CC == MARK && !EndKata){
+        EndKata = true;
+    } else{
+        SalinKata();
+        Ignore_Blank();
+    }
+}}
 
 void SalinKata() {
 /*	Mengakuisisi kata, menyimpan dalam CKata
@@ -101,10 +110,10 @@ boolean IsKataSama(Kata K1, Kata K2) {
 
 
 
-int main (){
-    Kata kata1 = {("Ayam", 9)};
-    Kata kata2 = {("Ayam", 7)};
+// int main (){
+//     Kata kata1 = {("Ayam", 9)};
+//     Kata kata2 = {("Ayam", 7)};
     
-    STARTKATA;
-    IsKataSama(kata1, kata2);
-}
+//     STARTKATA;
+//     IsKataSama(kata1, kata2);
+// }
