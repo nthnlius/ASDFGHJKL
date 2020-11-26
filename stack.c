@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "stack.h"
 /* *** Konstruktor/Kreator *** */
-void CreateEmpty(Stack *S)
+void CreateEmptyStack(Stack *S)
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */
@@ -14,13 +14,13 @@ void CreateEmpty(Stack *S)
 }
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
-bool IsEmpty(Stack S)
+bool IsStackEmpty(Stack S)
 {
     return S.TOP == Nil ;
 }
 /* Mengirim true jika Stack kosong*/
 /* Ciri stack kosong : TOP bernilai Nil */
-bool IsFull(Stack S)
+bool IsStackFull(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
@@ -60,7 +60,7 @@ void ForcePush(Stack *S, infotype X)
         Contoh: S berisi a b c d e f g h i j, setelah melakukan ForcePush(S, "k")
         S berisi b c d e f g h i j k */
 {
-    if (IsFull(*S)){
+    if (IsStackFull(*S)){
         int i;
         for (i=0;i<MaxEl;i++){
             (*S).T[i]=(*S).T[i+1];
