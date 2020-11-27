@@ -4,35 +4,39 @@
 #include "stack.c"
 #include "queuelinier.c"
 #include "komponen.c"
+#include "arraydin.c"
 
 
 void build(){
+    char ac[15];
     Stack S;
     CreateEmptyStack(*S);
     IdxType CurrentlyBuilt;
 
-    if( CurrentlyBuilt != Nil ){
-        // udah startbuild jadi bisa addcomponent
-        for (int j = 0;j < 4;j++){
-            printf("%d. %s, \n", j+1, motherboard[j]);
-        }
-        printf("Komponen Motherboard yang keberapa ");
-        scanf("%d", &i);
-        Push(&S, (*inventorymotherboard)[i-1] );
-        jumlahmotherboard[i-1] = jumlahmotherboard[i-1] - 1;
-        
-        for (int j = 0;j < 4;j++){
-            printf("%d. %s, \n", j+1, cpu[j]);
-        }
-        printf("Komponen CPU yang keberapa ");
-        scanf("%d", &i);
-        Push(&S, (*inventorycpu)[i-1] );
-        jumlahcpu[i-1] = jumlahcpu[i-1] - 1;
-    }
+    printf("ENTER COMMAND: ");
+    scanf("%s", ac);
+    if (strcmp(ac, "ADDCOMPONENT")==0){
+        if( CurrentlyBuilt != Nil ){// udah startbuild jadi bisa addcomponent
+            printf("Komponen yang telah terpasang: ");
+            // tampilin komponen yang terpasang
+            printf("Komponen yang tersedia: ");
+            // tampilin inventory
+            // TulisIsiTab(inventorymotherboard)
+            for (int j = 0;j < 4;j++){
+                printf("%d. %s, \n", j+1, motherboard[j]);
+            }
+            printf("Komponen motherboard yang ingin dipasang: ");
+            scanf("%d", &i);
+            Push(&S, (*inventorymotherboard)[i-1] );
+            jumlahmotherboard[i-1] = jumlahmotherboard[i-1] - 1;
+            printf("Komponen motherboard berhasil dipasang!");
 
-    else{ 
-        // belum startbuild 
-        printf("Mulai startbuild terlebih dahulu!");
+        }
+
+        else{ 
+            // belum startbuild 
+            printf("Mulai startbuild terlebih dahulu!");
+        }
     }
 }
     
