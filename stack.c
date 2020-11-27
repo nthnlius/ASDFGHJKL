@@ -14,19 +14,19 @@ void CreateEmptyStack(Stack *S)
 }
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
-bool IsSEmpty(Stack S)
+bool IsStackEmpty(Stack S)
 {
     return S.TOP == Nil ;
 }
 /* Mengirim true jika Stack kosong*/
 /* Ciri stack kosong : TOP bernilai Nil */
-bool IsSFull(Stack S)
+bool IsStackFull(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
     return (S.TOP == MaxEl-1);
 }
-bool IsSOneElmt(Stack S)
+bool IsStackOneElmt(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
@@ -75,7 +75,7 @@ void ForcePush(Stack *S, infotype X)
         Contoh: S berisi a b c d e f g h i j, setelah melakukan ForcePush(S, "k")
         S berisi b c d e f g h i j k */
 {
-    if (IsSFull(*S)){
+    if (IsStackFull(*S)){
         int i;
         for (i=0;i<MaxEl;i++){
             (*S).T[i]=(*S).T[i+1];
@@ -93,12 +93,12 @@ FS . Tercipta Stack Sout dengan elemen sama persis dengan Stack S */
 {
     Stack Stemp;
     infotype X;
-    CreateEmpty(&Stemp);
-    while (!IsSEmpty(*S)){
+    CreateEmptyStack(&Stemp);
+    while (!IsStackEmpty(*S)){
         Push(&Stemp, (*S).T[(*S).TOP]);
         Pop(S, &X);
     }
-    while (!IsSEmpty(Stemp)){
+    while (!IsStackEmpty(Stemp)){
         Push (S, Stemp.T[Stemp.TOP]);
         Push (Sout, Stemp.T[Stemp.TOP]);
         Pop(&Stemp, &X);
@@ -108,9 +108,9 @@ FS . Tercipta Stack Sout dengan elemen sama persis dengan Stack S */
 void InversStack(Stack S, Stack * Sout){
     Stack Stemp;
     infotype X;
-    CreateEmpty(&Stemp);
+    CreateEmptyStack(&Stemp);
     CopyStack(&S, &Stemp);
-    while (!IsSEmpty(Stemp)){
+    while (!IIsStackEmpty(Stemp)){
         Push(Sout, Stemp.T[Stemp.TOP]);
         Pop(&Stemp, &X);
     }
@@ -119,11 +119,11 @@ void InversStack(Stack S, Stack * Sout){
 void PrintStack(Stack S){
     Stack Stemp;
     infotype X; //variabel dummy untuk memenuhi parameter Pop
-    CreateEmpty(&Stemp);
+    CreateEmptyStack(&Stemp);
     InversStack(S, &Stemp);
     printf("[");
-    if (!IsSEmpty(Stemp)){
-        while (!IsSOneElmt(Stemp)){
+    if (!IsStackEmpty(Stemp)){
+        while (!IsStackOneElmt(Stemp)){
             printf("%c  ", Stemp.T[Stemp.TOP]);
             Pop(&Stemp, &X);
         }
