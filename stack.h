@@ -41,7 +41,9 @@ bool IsStackEmpty(Stack S);
 bool IsStackFull(Stack S);
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
-
+bool IsStackOneElmt(Stack S);
+/* Mengirim true jika Stack sisa 1 elemen
+/* Ciri Stack satu Elemen : S.TOP = 0*/
 /* ********** Operator Dasar Stack ********* */
 void Push(Stack *S, infotype X);
 /* Menambahkan X sebagai elemen Stack S. */
