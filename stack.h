@@ -9,7 +9,7 @@ TOP adalah alamat elemen puncak*/
 
 #define false 0
 #define true 1
-#define Nil 0
+#define Nil -1
 #define MaxEl 10
 
 typedef int bool;
@@ -60,5 +60,7 @@ void ForcePush(Stack *S, infotype X);
         Apabila S penuh, buang element paling bawah dari S dan masukkan X sebagai TOP
         Contoh: S berisi a b c d e f g h i j, setelah melakukan ForcePush(S, "k")
         S berisi b c d e f g h i j k */
-
+void CopyStack(Stack * S, Stack * Sout);
+void InversStack(Stack S, Stack * Sout);
+void PrintStack(Stack S);
 #endif
