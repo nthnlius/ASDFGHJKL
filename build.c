@@ -7,7 +7,7 @@
 #include "arraydin.c"
 
 
-void build(){
+void addcomponent(){
     char ac[15];
     Stack S;
     CreateEmptyStack(*S);
