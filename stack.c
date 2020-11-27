@@ -38,7 +38,7 @@ void Push(Stack *S, infotype X)
 /* I.S. S mungkin kosong, S tidak penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
 {
-    if(!IsSEmpty(*S)){
+    if(!IsStackEmpty(*S)){
         (*S).TOP = (*S).TOP + 1;
         (*S).T[(*S).TOP]=X;
     }
@@ -110,7 +110,7 @@ void InversStack(Stack S, Stack * Sout){
     infotype X;
     CreateEmptyStack(&Stemp);
     CopyStack(&S, &Stemp);
-    while (!IIsStackEmpty(Stemp)){
+    while (!IsStackEmpty(Stemp)){
         Push(Sout, Stemp.T[Stemp.TOP]);
         Pop(&Stemp, &X);
     }
