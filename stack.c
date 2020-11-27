@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "stack.h"
 /* *** Konstruktor/Kreator *** */
-void CreateEmpty(Stack *S)
+void CreateEmptyStack(Stack *S)
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */

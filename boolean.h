@@ -1,3 +1,5 @@
+/* File: boolean.h */
+/* Definisi type data boolean */
 #ifndef BOOLEAN_H
 #define BOOLEAN_H
 #define boolean unsigned char
