@@ -1,10 +1,10 @@
-#include "queuelinier.h"
-#include "queuelinier.c"
+#include "queuelinkedlist.c"
+#include "queuelinkedlist.h"
 
 void printbatas(){
     printf("\n=================================================================================\n");
 }
-void StartBuild(Queue Q, IdxType * CurrentlyBuilt){
+void StartBuild(QueueLL Q, infotype * CurrentlyBuilt){
     if (*CurrentlyBuilt == NIL){
         if (Q.HEAD != NIL){
             printbatas();
@@ -24,6 +24,11 @@ void StartBuild(Queue Q, IdxType * CurrentlyBuilt){
         printf("tolong kerjakan pesanan yang sudah terdaftar terlebih dahulu!");
         printbatas();
     }
+}
+void FinishBuild(QueueLL * Q, infotype * X){
+    *X = Nil;
+    infotype A; //variabel dummy
+    DequeueQLL(Q, &A);
 }
 // int main(){
 //     Queue Q;
