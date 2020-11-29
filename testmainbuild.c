@@ -3,6 +3,9 @@
 #include <string.h>
 #include "build.c"
 
+
+// INI MASI ERROR PAS DARI SALAH SATU WHILE GABISA KE WHILE YG LAIN BISANYA KE BACK
+
 int main(){
     char ac[15];
     int CurrentlyBuilt = 1;
