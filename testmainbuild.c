@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "gtaubuild.c"
+#include "build.c"
 
 int main(){
     char ac[15];
