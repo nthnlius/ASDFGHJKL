@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "arraydin.h"
+#include "mesinkata.h"
+#include "mesinkarakter.h"
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong  */
@@ -97,11 +99,22 @@ void BacaIsi(TabInt *T)
       IdxMin satu per satu diakhiri enter */
     /*    Jika N = 0; hanya terbentuk T kosong */
     int N;
+    int i;
     ElType inp;
+    Kata P;
     //
     do
     {
+        printf("Masukkan Jumlah Items");
         scanf("%d", &N);
+        printf("Masukkan nama Komponen : ");
+        STARTKATAINPUT();
+        while (!EndKata){
+            for (i=0 ; i<CKata.Length;i++){
+                (*T).A->TabKata[i] = CKata.TabKata[i];
+                }
+        }
+        // (*T).A. = P;
     } while (!((N >= 0) && (N <= MaxElement(*T))));
     //
     if (N == 0)

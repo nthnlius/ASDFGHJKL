@@ -37,7 +37,7 @@ void Ignore_Blank();
 	F.S. : CC != BLANK atau CC == MARK
 */
 
-void STARTKATA(char* filename);
+void STARTKATAFILE(char* filename);
 /*	I.S. : CC sembarang
 	F.S  : Salah satu dari dua kondisi dibawah.
 		1. EndKata = true dan CC == Mark
@@ -67,5 +67,5 @@ boolean IsKataSama(Kata K1, Kata K2);
 /*	Mengembalikan true jika K1 = K2; dua kata dikatakan sama jika panjangnya sama dan
 	urutan karakter yang menyusun kata juga sama. Sensitif terhadap uppercase dan lowercase
 */
-
+void STARTKATAINPUT();
 #endif

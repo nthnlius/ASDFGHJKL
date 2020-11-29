@@ -8,6 +8,8 @@
 #define ARRAYDIN_H
 
 #include "boolean.h"
+#include "mesinkata.h"
+#include "mesinkarakter.h"
 
 /*  Kamus Umum */
 #define IdxMin 1
@@ -17,14 +19,14 @@
 
 /* Definisi elemen dan koleksi objek */
 typedef int IdxType; /* type indeks */
-typedef char* nama;
+typedef Kata Nama;
 typedef int ElType;  /* type elemen tabel */
 typedef struct
 {
     ElType *TI; /* memori tempat penyimpan elemen (container) */
     int Neff;   /* >=0, banyaknya elemen efektif */
     int MaxEl;  /* ukuran elemen */
-    nama A[1<<5]; 
+    Nama A[1<<5]; 
 } TabInt;
 
 

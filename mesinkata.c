@@ -7,14 +7,14 @@ void Ignore_Blank() {
 	F.S. : CC != BLANK atau CC == MARK
 */
 	//ALGORITMA
-	while (!EOP() && (CC==blank)) {
-		ADV();
+	while (!EOP() && ((CC==blank) || (CC==MARK1))) {
+		ADVINPUT();
 	}
 	if (EOP())
 		EndKata=true;
 }
 
-void STARTKATA(char* filename) {
+void STARTKATAFILE(char* filename) {
 /*	I.S. : CC sembarang
 	F.S  : Salah satu dari dua kondisi dibawah.
 		1. EndKata = true dan CC == Mark
@@ -34,9 +34,9 @@ void STARTKATA(char* filename) {
 // 	}
 // }
 {
-    START(filename);
+    STARTFILE(filename);
     Ignore_Blank();
-    if (CC == MARK){
+    if (CC == MARK2){
         EndKata = true;
     } else {
         EndKata = false;
@@ -55,7 +55,7 @@ void ADVKATA() {
 	//ALGORITMA
 {
     Ignore_Blank();
-    if (CC == MARK && !EndKata){
+    if (CC == MARK2 && !EndKata){
         EndKata = true;
     } else{
         SalinKata();
@@ -83,7 +83,7 @@ void SalinKata() {
 			CKata.Length+=1;
 			CKata.TabKata[CKata.Length-1] = CC;
 		}
-		ADV();
+		ADVINPUT();
 	}
 	if (EOP())
 		EndKata = true;
@@ -108,6 +108,36 @@ boolean IsKataSama(Kata K1, Kata K2) {
 	else return false;
 }
 
+void STARTKATAINPUT() {
+/*	I.S. : CC sembarang
+	F.S  : Salah satu dari dua kondisi dibawah.
+		1. EndKata = true dan CC == Mark
+		2. EndKata = false, CKata adalah kata yang sudah diakuisisi, dan CC adalah satu karakter setelah karakter terakhir kata
+
+		Keterangan: CC mengacu pada yang disebut pada mesinkarakter
+*/
+	//ALGORITMA
+// 	START(filename);
+// 	Ignore_Blank();
+// 	if (!EOP()) {
+// 		EndKata=false;
+// 		SalinKata();
+// 	}
+// 	else {
+// 		EndKata=true;
+// 	}
+// }
+{
+    STARTINPUT();
+    Ignore_Blank();
+    if (CC == MARK1){
+        EndKata = true;
+    } else {
+        EndKata = false;
+        ADVKATA();
+    }
+}
+}
 
 
 // int main (){

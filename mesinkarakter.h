@@ -3,7 +3,8 @@
 
 #include "boolean.h"
 #include <stdio.h>
-#define MARK '.'
+#define MARK1 '\n'
+#define MARK2 '.'
 
 /* State Mesin */
 extern char CC;
@@ -14,7 +15,7 @@ extern char CC;
   global yang menyimpan pembacaan file pita.
 */
 
-void START(char* filename);
+void STARTFILE(char* filename);
 /* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
 Karakter pertama yang ada pada pita posisinya adalah pada jendela.
 filename merupakan nama file yang berisi pita karakter
@@ -24,7 +25,7 @@ F.S. : CC adalah karakter pertama pada pita
 Jika CC != MARK maka EOP akan padam (false)
 Jika CC = MARK maka EOP akan menyala (true) */
 
-void ADV();
+void ADVFILE();
 /* Pita dimajukan satu karakter.
 I.S. : Karakter pada jendela = CC, CC != MARK
 F.S. : CC adalah karakter berikutnya dari CC yang lama,
@@ -43,5 +44,23 @@ boolean EOP();
 I.S. : Pita telah terbaca
 F.S. : Menegmbalikan true jika pita telah selesai terbaca, false jika sebaliknya
 */
+
+void STARTINPUT();
+/* Mesin siap dioperasikan. Pita disiapkan untuk dibaca.
+Karakter pertama yang ada pada pita posisinya adalah pada jendela.
+filename merupakan nama file yang berisi pita karakter
+I.S. : sembarang
+F.S. : CC adalah karakter pertama pada pita
+
+Jika CC != MARK maka EOP akan padam (false)
+Jika CC = MARK maka EOP akan menyala (true) */
+
+void ADVINPUT();
+/* Pita dimajukan satu karakter.
+I.S. : Karakter pada jendela = CC, CC != MARK
+F.S. : CC adalah karakter berikutnya dari CC yang lama,
+
+CC mungkin = MARK
+Jika CC = MARK maka EOP akan menyala (true) */
 
 #endif
