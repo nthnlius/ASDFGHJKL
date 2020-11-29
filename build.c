@@ -5,6 +5,9 @@
 // #include "StartBuild.c"
 #include "Komponen.c"
 
+//BLOM KELAR MASI ALUR MIKIR DAN BAHKAN ALURNYA KEKNYA BELOM KELAR
+//BENER BENER BARU PRINT PRINT DOANG
+
 int AddComponent(char a[15]){
     // char ac[15];
 
