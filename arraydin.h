@@ -17,13 +17,17 @@
 
 /* Definisi elemen dan koleksi objek */
 typedef int IdxType; /* type indeks */
+typedef char* nama;
 typedef int ElType;  /* type elemen tabel */
 typedef struct
 {
     ElType *TI; /* memori tempat penyimpan elemen (container) */
     int Neff;   /* >=0, banyaknya elemen efektif */
     int MaxEl;  /* ukuran elemen */
+    nama A[1<<5]; 
 } TabInt;
+
+
 /* Indeks yang digunakan [IdxMin..MaxEl] */
 /* Jika T adalah TabInt, cara deklarasi dan akses: */
 /* Deklarasi : T : TabInt */
