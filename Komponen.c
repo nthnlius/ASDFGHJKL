@@ -54,3 +54,15 @@
     int jumlahstorage[] = {9, 8, 9, 7};
     int jumlahpsu[] = {9, 7, 8, 9};
 
+    char *X[12] = {"A", "B", "C", "D",
+                  "D", "E", "F", "G",
+                  "H", "I", "J", "K"}; 
+
+//     int invetoryX[] = {9, 8, 6, 0,
+//                        9, 8, 6, 7, 
+//                        9, 8, 6, 7};
+
+       int i=0;
+       int z = 0;
+       int j = 0;
+
