@@ -3,86 +3,96 @@
 #include <string.h>
 #include "stack.c"
 // #include "StartBuild.c"
-#include "Komponen.c"
 
-//BLOM KELAR MASI ALUR MIKIR DAN BAHKAN ALURNYA KEKNYA BELOM KELAR
-//BENER BENER BARU PRINT PRINT DOANG
-
-int AddComponent(char a[15]){
-    // char ac[15];
-
+int AddComponent(){
+    // di startbuild createstack harusnya
     Stack S;
     CreateEmptyStack(&S);
+    int i,j,z,w;
+    j = 0;
+    z = 0;
+    w = 0;
 
-    // QueueLL Q;
-    // int Qi = Nil;
-    // int Qmax = 10;
-    // Q = CreateQLL(Qmax);
+    //ini masih pake inventory asal
+
+//     char *X[12] = {"Ac", "B", "C", "D",
+//                   "E", "F", "G", "H",
+//                   "I", "J", "K","L"}; 
+
+//     int invetoryX[] = {9, 8, 6, 0,
+//                        9, 8, 6, 7, 
+//                        9, 8, 6, 7};
+
+    char ac[20];
     int CurrentlyBuilt = 1;
+    printf("ENTER COMMAND: ");
+    scanf("%s", ac);
 
-    // char *X[12] = {"A", "B", "C", "D",
-    //               "D", "E", "F", "G",
-    //               "H", "I", "J", "K"}; 
-
-    // int invetoryX[] = {9, 8, 6, 7,
-    //                    9, 8, 6, 7, 
-    //                    9, 8, 6, 7};
-
-    // printf("ENTER COMMAND: ");
-    // scanf("%s", ac);
-    // StartBuild(Q,&Qi);
-    while( (strcmp(a, "ADDCOMPONENT")==0) && (CurrentlyBuilt != 0)){
-        printf("Komponen yang telah terpasang: \n");
-        // tampilin komponen yang terpasang
-        // nampilin stack build (cek teststack.c)
-        // printf("%d. %s \n", 1, S);
-        printf("Komponen yang tersedia: \n");
-        // nampilin inventory
-        PrintStack(S);
-        while(j<12){
-            if( invetoryX[j] != 0 ){
-                printf("%d. %s \n", z+1, X[j]);
-                z++;
+    if( (strcmp(ac, "ADDCOMPONENT")==0) && ( CurrentlyBuilt != Nil )){
+        while(strcmp(ac, "ADDCOMPONENT")==0){
+            printf("Komponen yang telah terpasang: \n");
+            // PrintStack(S);
+            printf("Komponen yang tersedia: \n");
+            // PrintStack(S);
+            while(j<12){
+                printf("%d. %s stock: %d \n", j+1, X[j], invetoryX[j]);
+                j++;
             }
-            j++;
-        }
-        
-        printf("Komponen yang ingin dipasang: ");
-        scanf("%d", &i);
-        printf("%s\n", X[i-1]);
-        Push(&S, (X)[i-1]);
-        // disini push ke S dari X[i-1]
-        // invetoryX[i-1] = invetoryX[i-1] - 1;
-        printf("Komponen berhasil dipasang!\n");
+            printf("Komponen yang stocknya 0 tidak dapat dipasang! \n");
+            printf("Komponen X yang ingin dipasang: ");
+            scanf("%d", &i);
 
-        printf("ENTER COMMAND: ");
-        scanf("%s", a);
-        z = 0;
-        j = 0;
-        // return(a);
-        CurrentlyBuilt = 1;
+            if( invetoryX[i-1] == 0){
+                printf("Komponen %s tidak tersedia! \n", X[i-1]);
+            }
+            else{
+                // Push(&S, (X)[i-1]);
+                printf("%s\n", X[i-1]);
+                printf("%d\n",invetoryX[i-1]);
+                printf("Komponen berhasil dipasang!\n");
+            }
+            printf("ENTER COMMAND: ");
+            scanf("%s", ac);
+            j = 0;
+        }
     }
-    if(CurrentlyBuilt == 0){
+    else{
         printf("silahkan 'startbuild' terlebih dahulu\n");
     }
-
 }
 
-int RemoveComponent(char a[15]){
-    // char ac[15];
+int RemoveComponent(){
+    // di startbuild createstack harusnya
+    int i,j,z,w;
+    j = 0;
+    z = 0;
+    w = 0;
+    i = 0;
+
+    //ini masih pake inventory asal
+
+//     char *X[12] = {"Ac", "B", "C", "D",
+//                   "E", "F", "G", "H",
+//                   "I", "J", "K","L"}; 
+
+//     int invetoryX[] = {9, 8, 6, 0,
+//                        9, 8, 6, 7, 
+//                        9, 8, 6, 7};
+
+    char ac[20];
     int CurrentlyBuilt = 1;
-    
-    // printf("ENTER COMMAND: ");
-    // scanf("%s", ac);
+    printf("ENTER COMMAND: ");
+    scanf("%s", ac);
 
-    while( (strcmp(a, "REMOVECOMPONENT")==0) && (CurrentlyBuilt != 0)){
-            printf("Komponen %s berhasil dicopot! \n", X[i-1] );
-            Pop(&S,(&X)[i-1]);
+    if( (strcmp(ac, "REMOVECOMPONENT")==0) && ( CurrentlyBuilt != Nil )){
+        while(strcmp(ac, "REMOVECOMPONENT")==0){
+            // Pop(&S,(&X)[i-1]);
+            printf("Komponen berhasil dicopot! \n");
             printf("ENTER COMMAND: ");
-            scanf("%s", a);
+            scanf("%s", ac);
+        }
     }
-
-    if(CurrentlyBuilt == 0){
-        printf("silahkan 'startbuild' terlebih dahulu!!!\n");
+    else{
+        printf("silahkan 'startbuild' terlebih dahulu\n");
     }
 }
