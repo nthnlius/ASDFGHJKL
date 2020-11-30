@@ -25,8 +25,8 @@ int AddComponent(){
 
     char ac[20];
     int CurrentlyBuilt = 1;
-    printf("ENTER COMMAND: ");
-    scanf("%s", ac);
+//     printf("ENTER COMMAND: ");
+//     scanf("%s", ac);
 
     if( (strcmp(ac, "ADDCOMPONENT")==0) && ( CurrentlyBuilt != Nil )){
         while(strcmp(ac, "ADDCOMPONENT")==0){
@@ -81,8 +81,8 @@ int RemoveComponent(){
 
     char ac[20];
     int CurrentlyBuilt = 1;
-    printf("ENTER COMMAND: ");
-    scanf("%s", ac);
+//     printf("ENTER COMMAND: ");
+//     scanf("%s", ac);
 
     if( (strcmp(ac, "REMOVECOMPONENT")==0) && ( CurrentlyBuilt != Nil )){
         while(strcmp(ac, "REMOVECOMPONENT")==0){
