@@ -4,7 +4,7 @@
 #include "stack.c"
 // #include "StartBuild.c"
 
-int AddComponent(){
+int AddComponent(char ac[20]){
     // di startbuild createstack harusnya
     Stack S;
     CreateEmptyStack(&S);
@@ -23,7 +23,6 @@ int AddComponent(){
 //                        9, 8, 6, 7, 
 //                        9, 8, 6, 7};
 
-    char ac[20];
     int CurrentlyBuilt = 1;
 //     printf("ENTER COMMAND: ");
 //     scanf("%s", ac);
@@ -61,7 +60,7 @@ int AddComponent(){
     }
 }
 
-int RemoveComponent(){
+int RemoveComponent(char ac[20]){
     // di startbuild createstack harusnya
     int i,j,z,w;
     j = 0;
@@ -79,7 +78,7 @@ int RemoveComponent(){
 //                        9, 8, 6, 7, 
 //                        9, 8, 6, 7};
 
-    char ac[20];
+//     char ac[20];
     int CurrentlyBuilt = 1;
 //     printf("ENTER COMMAND: ");
 //     scanf("%s", ac);
