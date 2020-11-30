@@ -4,9 +4,9 @@
 #include "build.c"
 
 
-// INI MASI ERROR PAS DARI SALAH SATU WHILE GABISA KE WHILE YG LAIN BISANYA KE BACK
-
-char ac[20];
+    // INI MASI ERROR PAS DARI SALAH SATU WHILE GABISA KE WHILE YG LAIN BISANYA KE BACK
+int main(){
+    char ac[20];
     int CurrentlyBuilt = 1;
     
     printf("ENTER COMMAND: ");
@@ -36,3 +36,5 @@ char ac[20];
     else if( (strcmp(ac, "BACK")==0) && (CurrentlyBuilt != Nil)){
         printf("ceritanya balik ke MAIN menu lagi");
     }
+    
+}
