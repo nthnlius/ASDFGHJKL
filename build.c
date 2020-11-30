@@ -38,6 +38,7 @@ int AddComponent(char a[15]){
         // printf("%d. %s \n", 1, S);
         printf("Komponen yang tersedia: \n");
         // nampilin inventory
+        PrintStack(S);
         while(j<12){
             if( invetoryX[j] != 0 ){
                 printf("%d. %s \n", z+1, X[j]);
@@ -49,6 +50,7 @@ int AddComponent(char a[15]){
         printf("Komponen yang ingin dipasang: ");
         scanf("%d", &i);
         printf("%s\n", X[i-1]);
+        Push(&S, (X)[i-1]);
         // disini push ke S dari X[i-1]
         // invetoryX[i-1] = invetoryX[i-1] - 1;
         printf("Komponen berhasil dipasang!\n");
@@ -75,6 +77,7 @@ int RemoveComponent(char a[15]){
 
     while( (strcmp(a, "REMOVECOMPONENT")==0) && (CurrentlyBuilt != 0)){
             printf("Komponen %s berhasil dicopot! \n", X[i-1] );
+            Pop(&S,(&X)[i-1]);
             printf("ENTER COMMAND: ");
             scanf("%s", a);
     }
