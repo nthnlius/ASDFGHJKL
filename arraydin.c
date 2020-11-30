@@ -99,23 +99,25 @@ void BacaIsi(TabInt *T)
       IdxMin satu per satu diakhiri enter */
     /*    Jika N = 0; hanya terbentuk T kosong */
     int N;
-    int i;
+    int j;
     ElType inp;
     Kata P;
+    int z;
     //
-    do
-    {
-        printf("Masukkan Jumlah Items");
-        scanf("%d", &N);
-        printf("Masukkan nama Komponen : ");
-        STARTKATAINPUT();
-        while (!EndKata){
-            for (i=0 ; i<CKata.Length;i++){
-                (*T).A->TabKata[i] = CKata.TabKata[i];
-                }
-        }
+    printf("Masukkan Jumlah Items");
+    scanf("%d", &N);
+    //while (!((N >= 0) && (N <= MaxElement(*T))))
+    //{
+
+        // printf("Masukkan nama Komponen : ");
+        // STARTKATAINPUT();
+        // while (!EndKata){
+        //     for (i=0 ; i<CKata.Length;i++){
+        //         (*T).A->TabKata[i] = CKata.TabKata[i];
+        //         }
+        //}
         // (*T).A. = P;
-    } while (!((N >= 0) && (N <= MaxElement(*T))));
+    //} 
     //
     if (N == 0)
     {
@@ -129,6 +131,23 @@ void BacaIsi(TabInt *T)
         {
             scanf("%d", &inp);
             Elmt(*T, i) = inp;
+            printf("Masukkan nama Komponen : ");
+            STARTKATAINPUT();
+            while (!EOP()){
+                //SalinKata();
+                for(j=(*T).A->Length;j<CKata.Length+(*T).A->Length;j++){
+                    (*T).A->TabKata[j] = CKata.TabKata[j-(*T).A->Length]
+;                }
+                (*T).A->TabKata[j]= ' ';
+                (*T).A->Length += CKata.Length+1;
+                ADVKATA();
+                printf("\n");
+            }
+            //SalinKata();
+            for(j=(*T).A->Length;j<CKata.Length+(*T).A->Length;j++){
+                 (*T).A->TabKata[j] = CKata.TabKata[j-(*T).A->Length];
+            }
+            (*T).A->Length += CKata.Length;
         }
     }
 }
@@ -143,16 +162,15 @@ void TulisIsiTab(TabInt T)
     /* Jika tabel kosong : menulis [] */
     if (IsEmpty(T))
     {
-        printf("[]");
+        printf("kosong gan");
     }
     else
     {
-        printf("[");
         for (IdxType i = GetFirstIdx(T); i < GetLastIdx(T); i++)
         {
-            printf("%d,", Elmt(T, i));
+            printf("%d. %s ", Elmt(T, i), (T).A->TabKata);
         }
-        printf("%d]", Elmt(T, GetLastIdx(T)));
+        printf("%d. %s\n", Elmt(T, GetLastIdx(T)), (T).A->TabKata);
     }
 }
 
@@ -473,4 +491,11 @@ void CompactTab(TabInt *T)
     /* I.S. Tabel tidak kosong */
     /* F.S. Ukuran MaxEl = Neff */
     MaxEl(*T) = Neff(*T);
+}
+
+int main(){
+    TabInt T;
+    MakeEmpty(&T, 5);
+    BacaIsi(&T);
+    TulisIsiTab(T);
 }
