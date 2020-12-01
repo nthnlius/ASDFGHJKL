@@ -38,6 +38,42 @@ int shop(TabInt T){
         
     int beli;
     int beliberapa;
+
+    printf("Komponen yang tersedia: \n");
+        for (int i = 0;i < 4;i++){
+            printf("%d. %s, harga Rp.%d\n", i+1, motherboard[i], hmotherboard[i]);
+        }
+        
+        for (int i = 0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+5, cpu[i], hcpu[i]);
+        }
+        
+        for (int i =0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+9, memory[i], hmemory[i]);
+        }
+        
+        for (int i = 0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+13, cpucooler[i], hcpucooler[i]);
+        }
+        
+        for (int i = 0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+17, cases[i], hcases[i]);
+        }
+        
+        for (int i = 0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+21, gpu[i], hgpu[i]);
+        }
+        
+        for (int i = 0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+25, storage[i], hstorage[i]);
+        }
+       
+        for (int i = 0; i<4; i++){
+            printf("%d. %s, harga Rp.%d\n", i+29, psu[i], hpsu[i]);
+        }
+        printf("\n");
+
+
     printf("Komponen yang ingin dibeli : ");
     scanf("%d", &beli);
     printf("Masukkan jumlah yang ingin dibeli : ");
@@ -49,6 +85,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmotherboard[0]){
             jumlahuang = jumlahuang - beliberapa*hmotherboard[0];
             T.TI[1] = T.TI[1] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -60,6 +97,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmotherboard[1]){
             jumlahuang = jumlahuang - beliberapa*hmotherboard[1];
             T.TI[2] = T.TI[2] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -71,6 +109,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmotherboard[2]){
             jumlahuang = jumlahuang - beliberapa*hmotherboard[2];
             T.TI[3] = T.TI[3] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -82,6 +121,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmotherboard[3]){
             jumlahuang = jumlahuang - beliberapa*hmotherboard[3];
             T.TI[4] = T.TI[4] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -93,6 +133,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpu[0]){
             jumlahuang = jumlahuang - beliberapa*hcpu[0];
             T.TI[5] = T.TI[5] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -104,6 +145,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpu[1]){
             jumlahuang = jumlahuang - beliberapa*hcpu[1];
             T.TI[6] = T.TI[6] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -115,6 +157,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpu[2]){
             jumlahuang = jumlahuang - beliberapa*hcpu[2];
             T.TI[7] = T.TI[7] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -126,6 +169,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpu[3]){
             jumlahuang = jumlahuang - beliberapa*hcpu[3];
             T.TI[8] = T.TI[8] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -137,6 +181,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmemory[0]){
             jumlahuang = jumlahuang - beliberapa*hmemory[0];
             T.TI[9] = T.TI[9] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -148,6 +193,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmemory[1]){
             jumlahuang = jumlahuang - beliberapa*hmemory[1];
             T.TI[10] = T.TI[10] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -159,6 +205,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmemory[2]){
             jumlahuang = jumlahuang - beliberapa*hmemory[2];
             T.TI[11] = T.TI[11] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -170,6 +217,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hmemory[3]){
             jumlahuang = jumlahuang - beliberapa*hmemory[3];
             T.TI[12] = T.TI[12] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -181,6 +229,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpucooler[0]){
             jumlahuang = jumlahuang - beliberapa*hcpucooler[0];
             T.TI[13] = T.TI[13] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -192,6 +241,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpucooler[1]){
             jumlahuang = jumlahuang - beliberapa*hcpucooler[1];
             T.TI[14] = T.TI[14] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -203,6 +253,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpucooler[2]){
             jumlahuang = jumlahuang - beliberapa*hcpucooler[2];
             T.TI[15] = T.TI[15] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -214,6 +265,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcpucooler[3]){
             jumlahuang = jumlahuang - beliberapa*hcpucooler[3];
             T.TI[16] = T.TI[16] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -225,6 +277,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcases[0]){
             jumlahuang = jumlahuang - beliberapa*hcases[0];
             T.TI[17] = T.TI[17] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -236,6 +289,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcases[1]){
             jumlahuang = jumlahuang - beliberapa*hcases[1];
             T.TI[18] = T.TI[18] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -247,6 +301,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcases[2]){
             jumlahuang = jumlahuang - beliberapa*hcases[2];
             T.TI[19] = T.TI[19] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -258,6 +313,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hcases[3]){
             jumlahuang = jumlahuang - beliberapa*hcases[3];
             T.TI[20] = T.TI[20] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -269,6 +325,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hgpu[0]){
             jumlahuang = jumlahuang - beliberapa*hgpu[0];
             T.TI[21] = T.TI[21] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -280,6 +337,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hgpu[1]){
             jumlahuang = jumlahuang - beliberapa*hgpu[1];
             T.TI[22] = T.TI[22] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -291,6 +349,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hgpu[2]){
             jumlahuang = jumlahuang - beliberapa*hgpu[2];
             T.TI[23] = T.TI[23] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -302,6 +361,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hgpu[3]){
             jumlahuang = jumlahuang - beliberapa*hgpu[3];
             T.TI[24] = T.TI[24] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -313,6 +373,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hstorage[0]){
             jumlahuang = jumlahuang - beliberapa*hstorage[0];
             T.TI[25] = T.TI[25] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -324,6 +385,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hstorage[1]){
             jumlahuang = jumlahuang - beliberapa*hstorage[1];
             T.TI[26] = T.TI[26] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -335,6 +397,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hstorage[2]){
             jumlahuang = jumlahuang - beliberapa*hstorage[2];
             T.TI[27] = T.TI[27] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -346,6 +409,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hstorage[3]){
             jumlahuang = jumlahuang - beliberapa*hstorage[3];
             T.TI[28] = T.TI[28] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -357,6 +421,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hpsu[0]){
             jumlahuang = jumlahuang - beliberapa*hpsu[0];
             T.TI[29] = T.TI[29] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -368,6 +433,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hpsu[1]){
             jumlahuang = jumlahuang - beliberapa*hpsu[1];
             T.TI[30] = T.TI[30] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -379,6 +445,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hpsu[2]){
             jumlahuang = jumlahuang - beliberapa*hpsu[2];
             T.TI[31] = T.TI[31] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
@@ -390,6 +457,7 @@ int shop(TabInt T){
         if (jumlahuang >= beliberapa*hpsu[3]){
             jumlahuang = jumlahuang - beliberapa*hpsu[3];
             T.TI[32] = T.TI[32] + beliberapa;
+            printf("Komponen berhasil dibeli!\n");
         }
         else{
         printf("Uang anda tidak cukup!\n");
