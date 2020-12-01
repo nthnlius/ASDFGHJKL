@@ -465,11 +465,11 @@ int shop(TabInt T){
 
     }
 
-
-    printf("%d\n", jumlahuang);
-    for (int i=1; i<=32; i++){
-        printf("%s dengan jumlah %d\n", T.A[i], T.TI[i]);
-    }
+    // CUMA BUAT TEST
+    // printf("%d\n", jumlahuang);
+    // for (int i=1; i<=32; i++){
+    //     printf("%s dengan jumlah %d\n", T.A[i], T.TI[i]);
+    // }
     
 
 }
@@ -518,5 +518,5 @@ int shop(TabInt T){
     
     
      shop(T);
-     printf("%s berjumlah %d", T.A[1], T.TI[1]);
+    // printf("%s berjumlah %d", T.A[1], T.TI[1]);  CUMA NGETEST
  }
