@@ -27,7 +27,7 @@ bool IsStackFull(Stack S)
     return (S.TOP == MaxEl);
 }
 
-bool IsStackOneElmt(Stack S)
+bool IsSOneElmt(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
@@ -35,7 +35,7 @@ bool IsStackOneElmt(Stack S)
 }
 
 /* ********** Operator Dasar Stack ********* */
-void Push(Stack *S, infotype X)
+void Push(Stack *S, infotypeS X)
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S tidak penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
@@ -43,7 +43,7 @@ void Push(Stack *S, infotype X)
     (*S).T[(*S).TOP]=X;
     (*S).TOP = (*S).TOP + 1;
 }
-void Pop(Stack *S, infotype *X)
+void Pop(Stack *S, infotypeS *X)
 /* Menghapus X dari Stack S. */
 /* I.S. S tidak kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
@@ -59,7 +59,7 @@ void Pop(Stack *S, infotype *X)
 }
 
 /* ********** Operator Tambahan ********* */
-void ForcePush(Stack *S, infotype X)
+void ForcePush(Stack *S, infotypeS X)
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S mungkin penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1
@@ -85,7 +85,7 @@ I.S. S tidak mungkin kosong
 FS . Tercipta Stack Sout dengan elemen sama persis dengan Stack S */
 {
     Stack Stemp;
-    infotype X;
+    infotypeS X;
     CreateEmptyStack(&Stemp);
     while (!IsStackEmpty(*S)){
         Push(&Stemp, (*S).T[(*S).TOP]);
@@ -100,7 +100,7 @@ FS . Tercipta Stack Sout dengan elemen sama persis dengan Stack S */
 
 void InversStack(Stack S, Stack * Sout){
     Stack Stemp;
-    infotype X;
+    infotypeS X;
     CreateEmptyStack(&Stemp);
     CopyStack(&S, &Stemp);
     while (!IsStackEmpty(Stemp)){
@@ -111,14 +111,15 @@ void InversStack(Stack S, Stack * Sout){
 
 void PrintStack(Stack S){
     Stack Stemp;
-    infotype X; //variabel dummy untuk memenuhi parameter Pop
+    infotypeS X; //variabel dummy untuk memenuhi parameter Pop
     CreateEmptyStack(&Stemp);
     InversStack(S, &Stemp);
     printf("[");
     if (!IsStackEmpty(Stemp)){
-        while (!IsStackOneElmt(Stemp)){
-            printf("%c  ", Stemp.T[Stemp.TOP]);
+        while (!IsSOneElmt(Stemp)){
             Pop(&Stemp, &X);
+            printf("%c  ", X);
+            
         }
         printf("%c", Stemp.T[Stemp.TOP]);
     }
