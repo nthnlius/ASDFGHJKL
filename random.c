@@ -8,8 +8,7 @@ https://www.geeksforgeeks.org/generating-random-number-range-c/
 */
 // Generates and prints 'count' random 
 // numbers in range [lower, upper]. 
-int Randoms(int lower, int upper,  
-                             int count) 
+int Randoms(int lower, int upper) 
 { 
     int i; 
     int num = (rand() % 
@@ -35,20 +34,3 @@ int Randoms(int lower, int upper,
 //     return 0; 
 // } 
 
-int main() {
-     const char *str = "10";
-     const char *c = "27";
-     int x, y, z;
-     char t ;
-    char a ;
-    scanf ("%c", &t);
-    a = t;
-    int yee;
-    yee = atoi(&a);
-
-     y = atoi(str); // Using atoi()
-    printf("\nThe value of y : %d\n", y);
-    x = atoi(c);
-    printf("value c : %d\n", x);
-    return 0;
-}
