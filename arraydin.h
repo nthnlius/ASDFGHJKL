@@ -17,7 +17,7 @@ typedef struct
 {
     ElType *TI; /* tempat menyimpan jumlah inven */
     int Neff;   /* >=0, banyaknya elemen efektif */
-    int MaxEl;  /* ukuran elemen */
+    int maxeldin;  /* ukuran elemen */
     nama A[100];
 } TabInt;
 
@@ -38,11 +38,11 @@ typedef struct
 #define Neff(T) (T).Neff
 #define TI(T) (T).TI
 #define Elmt(T, i) (T).TI[(i)]
-#define MaxEl(T) (T).MaxEl
+#define maxeldin(T) (T).maxeldin
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong  */
-void MakeEmpty(TabInt *T, int maxel);
+void MakeEmpty(TabInt *T, int maxeldin);
 /* I.S. T sembarang, maxel > 0 */
 /* F.S. Terbentuk tabel T kosong dengan kapasitas maxel + 1 */
 
@@ -103,5 +103,3 @@ void Sort(TabInt *T, boolean asc);
 
 
 #endif
-
-
