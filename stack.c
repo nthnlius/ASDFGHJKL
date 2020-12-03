@@ -27,7 +27,7 @@ bool IsStackFull(Stack S)
     return (S.TOP == MaxEl);
 }
 
-bool IsSOneElmt(Stack S)
+bool IsStackOneElmt(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
@@ -116,9 +116,9 @@ void PrintStack(Stack S){
     InversStack(S, &Stemp);
     printf("[");
     if (!IsStackEmpty(Stemp)){
-        while (!IsSOneElmt(Stemp)){
+        while (!IsStackOneElmt(Stemp)){
+            printf("%c  ", Stemp.T[Stemp.TOP]);
             Pop(&Stemp, &X);
-            printf("%c  ", X);
             
         }
         printf("%c", Stemp.T[Stemp.TOP]);
