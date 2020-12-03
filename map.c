@@ -7,10 +7,10 @@ int ReadInt(char * A){
     int x = atoi(A);
     return x;
 }
-int main(){
+MATRIKS ReadFileMap(char* filename){
     MATRIKS yee;
     int Baris, Kolom;
-    STARTKATAFILE("map.txt");
+    STARTKATAFILE(filename);
     Baris = ReadInt(CKata.TabKata);
     //printf("%s ", CKata.TabKata);
     //printf("\nCurrent Char : %d\n", Baris);
@@ -56,5 +56,11 @@ int main(){
         count++;
     }
     // printf("%c\n", NamaBuild[0]);
-    TulisMATRIKS(yee);
+    //TulisMATRIKS(yee);
+    return yee;
 }
+// int main(){
+//     MATRIKS map;
+//     map = ReadFileMap("map.txt");
+//     TulisMATRIKS(map);
+// }
