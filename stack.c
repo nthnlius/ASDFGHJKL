@@ -27,7 +27,7 @@ bool IsStackFull(Stack S)
     return (S.TOP == MaxEl);
 }
 
-bool IsSOneElmt(Stack S)
+bool IsStackOneElmt(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
