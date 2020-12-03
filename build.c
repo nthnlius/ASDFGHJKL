@@ -89,7 +89,7 @@ int RemoveComponent(char ac[20]){
     if( (strcmp(ac, "REMOVECOMPONENT")==0) && ( CurrentlyBuilt != Nil )){
         while(strcmp(ac, "REMOVECOMPONENT")==0){
             Pop(&S,&X);
-            printf("Komponen %c berhasil dicopot! \n", X); //ini %c ngikutin dari stack.c nya printstack
+            printf("Komponen %s berhasil dicopot! \n", X); //ini %c ngikutin dari stack.c nya printstack
             printf("ENTER COMMAND: ");
             scanf("%s", ac);
         }
