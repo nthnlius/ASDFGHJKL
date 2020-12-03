@@ -13,12 +13,12 @@ TOP adalah alamat elemen puncak*/
 #define MaxEl 10
 
 typedef int bool;
-typedef char* infotype;
+typedef char* infotypeS;
 typedef int address;
 
 typedef struct
 {
-    infotype T[MaxEl];
+    infotypeS T[MaxEl];
     address TOP;
 } Stack;
 
@@ -45,17 +45,17 @@ bool IsStackOneElmt(Stack S);
 /* Mengirim true jika Stack sisa 1 elemen
 /* Ciri Stack satu Elemen : S.TOP = 0*/
 /* ********** Operator Dasar Stack ********* */
-void Push(Stack *S, infotype X);
+void Push(Stack *S, infotypeS X);
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S tidak penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
-void Pop(Stack *S, infotype *X);
+void Pop(Stack *S, infotypeS *X);
 /* Menghapus X dari Stack S. */
 /* I.S. S tidak kosong */
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 
 /* ********** Operator Tambahan ********* */
-void ForcePush(Stack *S, infotype X);
+void ForcePush(Stack *S, infotypeS X);
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S mungkin penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1
