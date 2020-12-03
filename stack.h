@@ -9,7 +9,7 @@ TOP adalah alamat elemen puncak*/
 
 #define false 0
 #define true 1
-#define Nil -1
+#define NilS -1
 #define MaxEl 10
 
 typedef int bool;
