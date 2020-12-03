@@ -5,8 +5,8 @@ void printbatas(){
     printf("\n=================================================================================\n");
 }
 void StartBuild(QueueLL Q, infotype * CurrentlyBuilt){
-    if (*CurrentlyBuilt == NIL){
-        if (Q.HEAD != NIL){
+    if (*CurrentlyBuilt == NILQLL){
+        if (Q.HEAD != NILQLL){
             printbatas();
             printf("Item yang dibutuhkan oleh pesanan ini : \n");
             printf("%d", Q.Tab[Q.HEAD]);
@@ -26,7 +26,7 @@ void StartBuild(QueueLL Q, infotype * CurrentlyBuilt){
     }
 }
 void FinishBuild(QueueLL * Q, infotype * X){
-    *X = Nil;
+    *X = NILQLL;
     infotype A; //variabel dummy
     DequeueQLL(Q, &A);
 }
