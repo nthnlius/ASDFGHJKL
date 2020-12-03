@@ -6,17 +6,17 @@ void CreateEmptyStack(Stack *S)
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */
 {
-    (*S).TOP= Nil;
+    (*S).TOP= NilS;
     int i;
     for (i=0 ; i<=MaxEl ; i++){
-        (*S).T[i]=Nil;
+        (*S).T[i]=NilS;
     }
 }
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
 bool IsStackEmpty(Stack S)
 {
-    return S.TOP == Nil ;
+    return S.TOP == NilS ;
 }
 /* Mengirim true jika Stack kosong*/
 /* Ciri stack kosong : TOP bernilai Nil */
@@ -24,33 +24,25 @@ bool IsStackFull(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
-    return (S.TOP == MaxEl-1);
+    return (S.TOP == MaxEl);
 }
-bool IsStackOneElmt(Stack S)
+
+bool IsSOneElmt(Stack S)
 /* Mengirim true jika stack S penuh */
 /* Ciri stack penuh : TOP bernilai MaxEl */
 {
     return (S.TOP == 0);
 }
+
 /* ********** Operator Dasar Stack ********* */
 void Push(Stack *S, infotype X)
 /* Menambahkan X sebagai elemen Stack S. */
 /* I.S. S mungkin kosong, S tidak penuh */
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
 {
-    if(!IsStackEmpty(*S)){
-        (*S).TOP = (*S).TOP + 1;
-        (*S).T[(*S).TOP]=X;
-    }
-    else{
-        (*S).TOP = 0;
-        (*S).T[(*S).TOP]=X;
-    }
+    (*S).T[(*S).TOP]=X;
+    (*S).TOP = (*S).TOP + 1;
 }
-// {
-//     (*S).T[(*S).TOP]=X;
-//     (*S).TOP = (*S).TOP + 1;
-// }
 void Pop(Stack *S, infotype *X)
 /* Menghapus X dari Stack S. */
 /* I.S. S tidak kosong */
@@ -58,7 +50,7 @@ void Pop(Stack *S, infotype *X)
 {
     if ((*S).TOP == 0){
         *X = (*S).T[(*S).TOP-1];
-        (*S).TOP = Nil;
+        (*S).TOP = NilS;
     }
     else{
         *X=(*S).T[(*S).TOP -1];
@@ -86,6 +78,7 @@ void ForcePush(Stack *S, infotype X)
         Push(S, X);
     }
 }
+
 void CopyStack(Stack * S, Stack * Sout)
 /*Men-copy Stack S ke Stack Sout.
 I.S. S tidak mungkin kosong
