@@ -4,7 +4,7 @@
 #include "boolean.h"
 
 /* Nilai untuk indeks yang tidak terdefinisi */
-#define NIL -999
+#define NILQ -999
 
 /* Definisi tipe elemen dan indeks pada Queue */
 typedef int ElType;

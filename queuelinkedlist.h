@@ -4,7 +4,7 @@
 #include "boolean.h"
 
 /* Nilai untuk indeks yang tidak terdefinisi */
-#define Nil NULL
+#define NilQLL NULL
 
 /* Definisi tipe elemen dan indeks pada Queue */
 typedef int infotype;

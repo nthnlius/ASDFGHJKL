@@ -5,7 +5,7 @@
 boolean IsEmpty (Queue Q)
 /* Mengirim true jika Q kosong: lihat definisi di atas */
 {
-    return (Q.HEAD == NIL && Q.TAIL ==NIL);
+    return (Q.HEAD == NILQ && Q.TAIL ==NILQ);
 }
 boolean IsFull (Queue Q)
 /* Mengirim true jika tabel penampung elemen Q sudah penuh */
@@ -35,8 +35,8 @@ Queue CreateQueue (int Max)
     Queue Q ;
     Q.Tab = (int *)malloc(sizeof(ElType)*Max);
     if (Q.Tab != NULL){
-        Q.HEAD=NIL;
-        Q.TAIL = NIL;
+        Q.HEAD=NILQ;
+        Q.TAIL = NILQ;
         Q.MaxEl=Max;
     }
     return Q;

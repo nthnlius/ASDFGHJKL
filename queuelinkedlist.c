@@ -4,9 +4,9 @@
 
 address AlokasiQLL (infotype X)
 /* Mengirimkan address hasil alokasi sebuah elemen */
-/* Jika alokasi berhasil, maka address tidak nil, dan misalnya */
+/* Jika alokasi berhasil, maka address tidak NILQLL, dan misalnya */
 /* menghasilkan P, maka Info(P)=X, Next(P)=P */
-/* Jika alokasi gagal, mengirimkan Nil */
+/* Jika alokasi gagal, mengirimkan NILQLL */
 {
     address P;
     P = (address)malloc(sizeof(ElmtQueue));
@@ -16,20 +16,20 @@ address AlokasiQLL (infotype X)
         return (P);
     }
     else{
-        return(Nil);
+        return(NILQLLQLL);
     }
     return P;
 }
 void DealokasiQLL (address  P)
-/* I.S. P adalah hasil alokasi, P != Nil */
+/* I.S. P adalah hasil alokasi, P != NILQLL */
 /* F.S. Alamat P didealokasi, dikembalikan ke sistem */
 {
     free(P);
 }
 boolean IsQueueLLEmpty (QueueLL Q)
-/* Mengirim true jika Q kosong: HEAD(Q)=Nil and TAIL(Q)=Nil */
+/* Mengirim true jika Q kosong: HEAD(Q)=NILQLL and TAIL(Q)=NILQLL */
 {
-    return (Head(Q) == Nil && Tail(Q)==Nil) ;
+    return (Head(Q) == NILQLLQLL && Tail(Q)==NILQLLQLL) ;
 }
 
 
@@ -54,11 +54,11 @@ int NbElmtQLL(QueueLL Q)
 /*** Kreator ***/
 void CreateQLL(QueueLL * Q)
 /* I.S. sembarang */
-/* F.S. Sebuah Q kosong terbentuk (i.e. Head(Q) = Nil dan Tail(Q) = Nil) */
+/* F.S. Sebuah Q kosong terbentuk (i.e. Head(Q) = NILQLL dan Tail(Q) = NILQLL) */
 /*** Primitif Add/Delete ***/
 {
-    Head(*Q)=Nil;
-    Tail(*Q)=Nil;
+    Head(*Q)=NILQLL;
+    Tail(*Q)=NILQLL;
 }
 void EnqueueQLL (QueueLL * Q, infotype X)
 /* Proses: Menambahkan X pada Q dengan aturan FIFO */
@@ -86,14 +86,14 @@ void DequeueQLL (QueueLL * Q, infotype * X)
    elemen HEAD */
 /* Pada dasarnya operasi delete first */
 /* I.S. Q tidak mungkin kosong */
-/* F.S. X = nilai elemen HEAD pd I.S., HEAD "mundur" */
+/* F.S. X = NILai elemen HEAD pd I.S., HEAD "mundur" */
 {
     address P;
     (*X)=Info(Head(*Q));
     if (Head(*Q)==Tail(*Q)){// Queue 1 element
         DealokasiQLL(Head(*Q));
-        Head(*Q)=Nil;
-        Tail(*Q)=Nil;
+        Head(*Q)=NILQLL;
+        Tail(*Q)=NILQLL;
     }
     else{
         P = Head(*Q);
@@ -104,9 +104,9 @@ void DequeueQLL (QueueLL * Q, infotype * X)
 
 
 infotype FrontQLL (QueueLL Q)
-/* Proses: Mengembalikan nilai Q pada indeks HEAD tanpa penghapusan */
+/* Proses: Mengembalikan NILai Q pada indeks HEAD tanpa penghapusan */
 /* I.S. Q tidak mungkin kosong */
-/* F.S. mengembalikan nilai Q pada indeks HEAD;
+/* F.S. mengembalikan NILai Q pada indeks HEAD;
         Q pasti tetap tidak kosong */
 {
     return(Info(Head(Q)));
