@@ -4,16 +4,18 @@
 #include "boolean.h"
 
 /* Nilai untuk indeks yang tidak terdefinisi */
-#define NILQ -999
+#define NILQLin -999
 
 /* Definisi tipe elemen dan indeks pada Queue */
 typedef int ElType;
 typedef int IdxType;
+typedef char *namakomponen;
 
 typedef struct { ElType * Tab;  /* tabel penyimpan elemen */
                  IdxType HEAD;  /* indeks elemen paling awal (terdepan) */
                  IdxType TAIL;  /* indeks tempat menambah elemen baru */
-                 int MaxEl;     /* kapasitas jumlah elemen */
+                 int MaxEl;
+                 namakomponen namakomponen[30];     /* kapasitas jumlah elemen */
                } Queue;
 /* Definisi Queue kosong: HEAD=NIL; TAIL=NIL. */
 
@@ -29,7 +31,7 @@ int MaxLength (Queue Q);
 /* Mengirimkan kapasitas jumlah elemen Q */
 
 /* *** Kreator *** */
-Queue CreateQueue (int Max);
+Queue CreateQueue (Queue *Q, int Max);
 /* Proses : Melakukan alokasi memori, membuat sebuah Q kosong */
 /* I.S. sembarang */
 /* F.S. mengembalikan Q kosong dengan kondisi sbb: */
@@ -61,11 +63,11 @@ ElType Front (Queue Q);
 /* F.S. mengembalikan nilai Q pada indeks HEAD;
         Q pasti tetap tidak kosong */
 
-/* *** Utilitas *** */
-Queue CopyQueue (Queue Q);
-/* Proses: Mengembalikan Queue baru dengan isi antrean sama seperti Q */
-/* I.S. Q pernah dialokasi */
-/* F.S. Queue baru dengan nilai isi antrean sama seperti Q;
-        HEAD pada Queue baru dimulai dari 0 */
+// /* *** Utilitas *** */
+// Queue CopyQueue (Queue Q);
+// /* Proses: Mengembalikan Queue baru dengan isi antrean sama seperti Q */
+// /* I.S. Q pernah dialokasi */
+// /* F.S. Queue baru dengan nilai isi antrean sama seperti Q;
+//         HEAD pada Queue baru dimulai dari 0 */
 
 #endif

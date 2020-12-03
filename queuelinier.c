@@ -5,7 +5,7 @@
 boolean IsEmpty (Queue Q)
 /* Mengirim true jika Q kosong: lihat definisi di atas */
 {
-    return (Q.HEAD == NILQ && Q.TAIL ==NILQ);
+    return (Q.HEAD == NILQLin && Q.TAIL ==NILQLin);
 }
 boolean IsFull (Queue Q)
 /* Mengirim true jika tabel penampung elemen Q sudah penuh */
@@ -25,21 +25,21 @@ int MaxLength (Queue Q)
 }
 
 /* *** Kreator *** */
-Queue CreateQueue (int Max)
+Queue CreateQueue (Queue *Q, int Max)
 /* Proses : Melakukan alokasi memori, membuat sebuah Q kosong */
 /* I.S. sembarang */
 /* F.S. mengembalikan Q kosong dengan kondisi sbb: */
 /*   Jika alokasi berhasil, Tab dialokasi berukuran Max */
 /*   Jika alokasi gagal, Q kosong dengan MaxEl=0 */
 {
-    Queue Q ;
-    Q.Tab = (int *)malloc(sizeof(ElType)*Max);
-    if (Q.Tab != NULL){
-        Q.HEAD=NILQ;
-        Q.TAIL = NILQ;
-        Q.MaxEl=Max;
+    
+    (*Q).Tab = (int *)malloc(sizeof(ElType)*Max);
+    if ((*Q).Tab != NULL){
+        (*Q).HEAD=NILQLin;
+        (*Q).TAIL = NILQLin;
+        (*Q).MaxEl=Max;
     }
-    return Q;
+    return (*Q);
 }
 
 /* *** Destruktor *** */
@@ -101,22 +101,22 @@ ElType Front (Queue Q)
     return (Q.Tab[Q.HEAD]);
 }
 /* *** Utilitas *** */
-Queue CopyQueue (Queue Q)
-/* Proses: Mengembalikan Queue baru dengan isi antrean sama seperti Q */
-/* I.S. Q pernah dialokasi */
-/* F.S. Queue baru dengan nilai isi antrean sama seperti Q;
-        HEAD pada Queue baru dimulai dari 0 */
-{
-    Queue Q1;
-    IdxType i;
-    Q1=CreateQueue(Q.MaxEl);
-    Q1.HEAD = 0;
-    Q1.TAIL = Length(Q)-1;
-    for (i=0 ; i<= Q1.TAIL; i++){
-        Q1.Tab[i]=Q.Tab[i];
-    }
-    return Q1;
-}
+// Queue CopyQueue (Queue Q)
+// /* Proses: Mengembalikan Queue baru dengan isi antrean sama seperti Q */
+// /* I.S. Q pernah dialokasi */
+// /* F.S. Queue baru dengan nilai isi antrean sama seperti Q;
+//         HEAD pada Queue baru dimulai dari 0 */
+// {
+//     Queue Q1;
+//     IdxType i;
+//     Q1=CreateQueue(Q.MaxEl);
+//     Q1.HEAD = 0;
+//     Q1.TAIL = Length(Q)-1;
+//     for (i=0 ; i<= Q1.TAIL; i++){
+//         Q1.Tab[i]=Q.Tab[i];
+//     }
+//     return Q1;
+// }
 void PrintInfo(Queue Q){
     printf("[");
     IdxType i;
@@ -127,57 +127,3 @@ void PrintInfo(Queue Q){
     }
     printf("%d]\n", Q.Tab[Q.TAIL]);
 }
-// int main(){
-//     Queue Q, Q1;
-//     ElType A, B, C, D, E, F, G, H, I, J, maks;
-//     maks = 5;
-//     Q = CreateQueue(maks);
-//     printf("%d\n", Q.MaxEl);
-//     printf("A = ");
-//     scanf("%d", &A);
-//     //scanf("%d", &B);
-//     Push(&Q, A);
-//     printf("B = ");
-//     scanf("%d", &B);
-//     //scanf("%d", &C);
-//     Push(&Q, B);
-//     printf("C = ");
-//     scanf("%d", &C);
-//     //scanf("%d", &D);
-//     Push(&Q, C);
-//     printf("D = ");
-//     scanf("%d", &D);
-//     //scanf("%d", &E);
-//     Push(&Q, D);
-//     printf("E = ");
-//     scanf("%d", &E);
-//     //scanf("%d", &F);
-//     Push(&Q, E);
-//     printf("F = ");
-//     scanf("%d", &F);
-//     //scanf("%d", &A);
-//     Push(&Q, F);
-//     PrintInfo(Q);
-//     printf("HEAD : %d\n", Q.Tab[Q.HEAD]);
-//     printf("%d\n", Length(Q));
-//     printf("%d\n", MaxLength(Q));
-//     G= Pop(&Q);
-//     printf("G = %d\n", G);
-//     PrintInfo(Q);
-//     H = Pop (&Q);
-//     printf("H = %d\n", H);
-//     PrintInfo(Q);
-//     Push(&Q, G);
-//     Push(&Q, H);
-//     PrintInfo(Q);
-//     I = 7;
-//     J= 10;
-//     Push(&Q, I);
-//     PrintInfo(Q);
-//     Push(&Q, J);
-//     PrintInfo(Q);
-//     Q1 = CopyQueue(Q);
-//     printf("Q1\n");
-//     PrintInfo(Q1);
-//     I= Pop(&Q1);
-// }
