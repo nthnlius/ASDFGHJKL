@@ -2,25 +2,25 @@
 #include <stdlib.h>
 #include "queuelinkedlist.h"
 
-address AlokasiQLL (infotype X)
+addressQLL AlokasiQLL (infotypeQLL X)
 /* Mengirimkan address hasil alokasi sebuah elemen */
 /* Jika alokasi berhasil, maka address tidak NILQLL, dan misalnya */
 /* menghasilkan P, maka Info(P)=X, Next(P)=P */
 /* Jika alokasi gagal, mengirimkan NILQLL */
 {
-    address P;
-    P = (address)malloc(sizeof(ElmtQueue));
+    addressQLL P;
+    P = (addressQLL)malloc(sizeof(ElmtQueueLL));
     if (P!= NULL){
-        Info(P)=X;
-        Next(P)=P;
+        InfoQLL(P)=X;
+        NextQLL(P)=P;
         return (P);
     }
     else{
-        return(NILQLLQLL);
+        return(NilQLL);
     }
     return P;
 }
-void DealokasiQLL (address  P)
+void DealokasiQLL (addressQLL  P)
 /* I.S. P adalah hasil alokasi, P != NILQLL */
 /* F.S. Alamat P didealokasi, dikembalikan ke sistem */
 {
@@ -29,7 +29,7 @@ void DealokasiQLL (address  P)
 boolean IsQueueLLEmpty (QueueLL Q)
 /* Mengirim true jika Q kosong: HEAD(Q)=NILQLL and TAIL(Q)=NILQLL */
 {
-    return (Head(Q) == NILQLLQLL && Tail(Q)==NILQLLQLL) ;
+    return (HeadQLL(Q) == NilQLL && TailQLL(Q)==NilQLL) ;
 }
 
 
@@ -37,15 +37,15 @@ int NbElmtQLL(QueueLL Q)
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika Q kosong */
 {
     int count = 0;
-    address P;
+    addressQLL P;
     if (IsQueueLLEmpty(Q)){
         1==1;
     }
     else{
-        P= Head(Q);
+        P= HeadQLL(Q);
         count = 1;
-        while (P!=Tail(Q)){
-            P= Next(P);
+        while (P!=TailQLL(Q)){
+            P= NextQLL(P);
             count -=- 1;
         }
     }
@@ -57,10 +57,10 @@ void CreateQLL(QueueLL * Q)
 /* F.S. Sebuah Q kosong terbentuk (i.e. Head(Q) = NILQLL dan Tail(Q) = NILQLL) */
 /*** Primitif Add/Delete ***/
 {
-    Head(*Q)=NILQLL;
-    Tail(*Q)=NILQLL;
+    HeadQLL(*Q)=NilQLL;
+    TailQLL(*Q)=NilQLL;
 }
-void EnqueueQLL (QueueLL * Q, infotype X)
+void EnqueueQLL (QueueLL * Q, infotypeQLL X)
 /* Proses: Menambahkan X pada Q dengan aturan FIFO */
 /* I.S. Q mungkin kosong*/
 /* F.S. Jika Alokasi berhasil :
@@ -69,47 +69,47 @@ void EnqueueQLL (QueueLL * Q, infotype X)
             Jika Q kosong, HEAD dimulai dari 0 
         Jika Alokasi gagal : I.S. = F.S.*/
 {
-    address P1, P2;
+    addressQLL P1, P2;
     P1 = AlokasiQLL(X);
     if (IsQueueLLEmpty(*Q)){
-        Head(*Q)=P1;
-        Tail(*Q)=P1;
+        HeadQLL(*Q)=P1;
+        TailQLL(*Q)=P1;
     }
     else{
-        P2 = Tail(*Q);
-        Next(P2)=P1;
-        Tail(*Q)=P1;
+        P2 = TailQLL(*Q);
+        NextQLL(P2)=P1;
+        TailQLL(*Q)=P1;
     }
 }
-void DequeueQLL (QueueLL * Q, infotype * X)
+void DequeueQLL (QueueLL * Q, infotypeQLL * X)
 /* Proses: Menghapus X pada bagian HEAD dari Q dan mendealokasi
    elemen HEAD */
 /* Pada dasarnya operasi delete first */
 /* I.S. Q tidak mungkin kosong */
 /* F.S. X = NILai elemen HEAD pd I.S., HEAD "mundur" */
 {
-    address P;
-    (*X)=Info(Head(*Q));
-    if (Head(*Q)==Tail(*Q)){// Queue 1 element
-        DealokasiQLL(Head(*Q));
-        Head(*Q)=NILQLL;
-        Tail(*Q)=NILQLL;
+    addressQLL P;
+    (*X)=InfoQLL(HeadQLL(*Q));
+    if (HeadQLL(*Q)==TailQLL(*Q)){// Queue 1 element
+        DealokasiQLL(HeadQLL(*Q));
+        HeadQLL(*Q)=NilQLL;
+        TailQLL(*Q)=NilQLL;
     }
     else{
-        P = Head(*Q);
-        Head(*Q) = Next(Head(*Q));
+        P = HeadQLL(*Q);
+        HeadQLL(*Q) = NextQLL(HeadQLL(*Q));
         DealokasiQLL(P);
     }
 }
 
 
-infotype FrontQLL (QueueLL Q)
+infotypeQLL FrontQLL (QueueLL Q)
 /* Proses: Mengembalikan NILai Q pada indeks HEAD tanpa penghapusan */
 /* I.S. Q tidak mungkin kosong */
 /* F.S. mengembalikan NILai Q pada indeks HEAD;
         Q pasti tetap tidak kosong */
 {
-    return(Info(Head(Q)));
+    return(InfoQLL(HeadQLL(Q)));
 }
 
 

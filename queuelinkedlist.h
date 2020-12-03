@@ -7,38 +7,38 @@
 #define NilQLL NULL
 
 /* Definisi tipe elemen dan indeks pada Queue */
-typedef int infotype;
+typedef int infotypeQLL;
 
-typedef struct tElmtQueue * address;
-typedef struct tElmtQueue {
-	infotype Info;
-	address Next;
-} ElmtQueue;
+typedef struct tElmtQueueLL * addressQLL;
+typedef struct tElmtQueueLL {
+	infotypeQLL InfoQLL;
+	addressQLL NextQLL;
+} ElmtQueueLL;
 
 /* Type queue dengan ciri HEAD dan TAIL : */
 typedef struct {
-	address HEAD;  /* alamat penghapusan */
-	address TAIL;  /* alamat penambahan */
+	addressQLL HEADQLL;  /* alamat penghapusan */
+	addressQLL TAILQLL;  /* alamat penambahan */
 } QueueLL;
 
 /*Selektor */
-#define Head(Q) (Q).HEAD
-#define Tail(Q) (Q).TAIL
-#define InfoHead(Q) (Q).HEAD->Info
-#define InfoTail(Q) (Q).TAIL->Info
-#define Next(P) (P)->Next
-#define Info(P) (P)->Info
+#define HeadQLL(Q) (Q).HEADQLL
+#define TailQLL(Q) (Q).TAILQLL
+#define InfoHeadQLL(Q) (Q).HEADQLL->InfoQLL
+#define InfoTailQLL(Q) (Q).TAILQLL->InfoQLL
+#define NextQLL(P) (P)->NextQLL
+#define InfoQLL(P) (P)->InfoQLL
 /* Definisi Queue kosong: HEAD=NIL; TAIL=NIL. */
 
 /* ********* Prototype ********* */
 /* Prototype manajemen memori */
-address AlokasiQLL (infotype X);
+addressQLL AlokasiQLL (infotypeQLL X);
 /* Mengirimkan address hasil alokasi sebuah elemen */
 /* Jika alokasi berhasil, maka address tidak nil, dan misalnya */
 /* menghasilkan P, maka Info(P)=X, Next(P)=P */
 /* Jika alokasi gagal, mengirimkan Nil */
 
-void DealokasiQLL (address  P);
+void DealokasiQLL (addressQLL  P);
 /* I.S. P adalah hasil alokasi, P != Nil */
 /* F.S. Alamat P didealokasi, dikembalikan ke sistem */
 boolean IsQueueLLEmpty (QueueLL Q);
@@ -50,7 +50,7 @@ void CreateQLL(QueueLL * Q);
 /* I.S. sembarang */
 /* F.S. Sebuah Q kosong terbentuk (i.e. Head(Q) = Nil dan Tail(Q) = Nil) */
 /*** Primitif Add/Delete ***/
-void EnqueueQLL (QueueLL * Q, infotype X);
+void EnqueueQLL (QueueLL * Q, infotypeQLL X);
 /* Proses: Menambahkan X pada Q dengan aturan FIFO */
 /* I.S. Q mungkin kosong*/
 /* F.S. Jika Alokasi berhasil :
@@ -60,7 +60,7 @@ void EnqueueQLL (QueueLL * Q, infotype X);
         Jika Alokasi gagal : I.S. = F.S.*/
         
 
-void DequeueQLL (QueueLL * Q, infotype * X);
+void DequeueQLL (QueueLL * Q, infotypeQLL * X);
 /* Proses: Menghapus X pada bagian HEAD dari Q dan mendealokasi
    elemen HEAD */
 /* Pada dasarnya operasi delete first */
@@ -68,7 +68,7 @@ void DequeueQLL (QueueLL * Q, infotype * X);
 /* F.S. X = nilai elemen HEAD pd I.S., HEAD "mundur" */
 
 
-infotype FrontQLL (QueueLL Q);
+infotypeQLL FrontQLL (QueueLL Q);
 /* Proses: Mengembalikan nilai Q pada indeks HEAD tanpa penghapusan */
 /* I.S. Q tidak mungkin kosong */
 /* F.S. mengembalikan nilai Q pada indeks HEAD;
