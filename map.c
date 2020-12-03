@@ -59,8 +59,8 @@ MATRIKS ReadFileMap(char* filename){
     //TulisMATRIKS(yee);
     return yee;
 }
-// int main(){
-//     MATRIKS map;
-//     map = ReadFileMap("map.txt");
-//     TulisMATRIKS(map);
-// }
+int main(){
+    MATRIKS map;
+    map = ReadFileMap("map.txt");
+    TulisMATRIKS(map);
+}
