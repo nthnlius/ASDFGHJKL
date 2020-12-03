@@ -475,7 +475,7 @@ int shop(TabInt T){
 }
  
 
- int main(){
+ TabInt masukinisi(){
     TabInt T;
     
     MakeEmpty(&T, 32);     // Membuat empty array dengan 32 elemen kosong. Asumsi semua komponen mendapat tempat satu
@@ -517,6 +517,13 @@ int shop(TabInt T){
 
     
     
-     shop(T);
+     //shop(T);
     // printf("%s berjumlah %d", T.A[1], T.TI[1]);  CUMA NGETEST
+    return T;
  }
+
+//  int main(){
+//      TabInt T;
+//     T = masukinisi();
+//     printf("%s berjumlah %d", T.A[1], T.TI[1]);
+//  }
