@@ -4,13 +4,13 @@
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong  */
-void MakeEmpty(TabInt *T, int maxel)
+void MakeEmpty(TabInt *T, int maxeldin)
 {
     /* I.S. T sembarang, maxel > 0 */
     /* F.S. Terbentuk tabel T kosong dengan kapasitas maxel + 1 */
-    TI(*T) = (ElType *)malloc((maxel + 1) * sizeof(ElType));
+    TI(*T) = (ElType *)malloc((maxeldin + 1) * sizeof(ElType));
     Neff(*T) = 0;
-    MaxEl(*T) = maxel;
+    maxeldin(*T) = maxeldin;
 }
 
 void Dealokasi(TabInt *T)
@@ -19,7 +19,7 @@ void Dealokasi(TabInt *T)
     /* F.S. TI(T) dikembalikan ke system, MaxEl(T)=0; Neff(T)=0 */
     free(TI(*T));
     Neff(*T) = 0;
-    MaxEl(*T) = 0;
+    maxeldin(*T) = 0;
 }
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
@@ -35,7 +35,7 @@ int MaxElement(TabInt T)
 {
     /* Mengirimkan maksimum elemen yang dapat ditampung oleh tabel */
     /* *** Selektor INDEKS *** */
-    return MaxEl(T);
+    return maxeldin(T);
 }
 IdxType GetFirstIdx(TabInt T)
 {
@@ -55,7 +55,7 @@ boolean IsIdxValid(TabInt T, IdxType i)
 {
     /* Mengirimkan true jika i adalah indeks yang valid utk ukuran tabel */
     /* yaitu antara indeks yang terdefinisi utk container*/
-    return ((i >= IdxMin) && (i <= MaxEl(T)));
+    return ((i >= IdxMin) && (i <= maxeldin(T)));
 }
 boolean IsIdxEff(TabInt T, IdxType i)
 {
@@ -74,7 +74,7 @@ boolean IsEmpty(TabInt T)
 boolean IsFull(TabInt T)
 {
     /* Mengirimkan true jika tabel T penuh, mengirimkan false jika tidak */
-    return (Neff(T) == MaxEl(T) - IdxMin + 1);
+    return (Neff(T) == maxeldin(T) - IdxMin + 1);
 }
 
 
@@ -150,6 +150,3 @@ void Sort(TabInt *T, boolean asc)
         }
     }
 }
-
-
-
