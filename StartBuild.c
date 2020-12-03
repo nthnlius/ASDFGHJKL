@@ -1,22 +1,20 @@
-#include "queuelinkedlist.c"
 #include "queuelinkedlist.h"
+#include "command.h"
 
-void printbatas(){
-    printf("\n=================================================================================\n");
-}
-void StartBuild(QueueLL Q, infotype * CurrentlyBuilt){
-    if (*CurrentlyBuilt == NILQLL){
-        if (Q.HEAD != NILQLL){
-            printbatas();
+
+void StartBuild(QueueLL Q, infotypeQLL CurrentlyBuilt){
+    if (CurrentlyBuilt == -999){
+        if (HeadQLL(Q) != NilQLL){
+            //printbatas();
             printf("Item yang dibutuhkan oleh pesanan ini : \n");
-            printf("%d", Q.Tab[Q.HEAD]);
-            *CurrentlyBuilt = Q.HEAD;
-            printbatas();
+            printf("%d", InfoHeadQLL(Q));
+            CurrentlyBuilt = InfoHeadQLL(Q);
+            //printbatas();
         }
         else {
-            printbatas();
+            //printbatas();
             printf("Selamat! Semua pesanan telah selesai dikerjakan");
-            printbatas();
+            //printbatas();
         }
     }
     else{
@@ -25,9 +23,9 @@ void StartBuild(QueueLL Q, infotype * CurrentlyBuilt){
         printbatas();
     }
 }
-void FinishBuild(QueueLL * Q, infotype * X){
-    *X = NILQLL;
-    infotype A; //variabel dummy
+void FinishBuild(QueueLL * Q, infotypeQLL X){
+    X = -999;
+    infotypeQLL A; //variabel dummy
     DequeueQLL(Q, &A);
 }
 // int main(){

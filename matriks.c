@@ -28,9 +28,6 @@ void MakeMATRIKS (int NB, int NK, MATRIKS * M){
 
 /* *** Selektor "DUNIA MATRIKS" *** */
 /* Mengirimkan true jika i, j adalah indeks yang valid untuk matriks apa pun */
-boolean IsIdxValid (int i, int j){
-  return (BrsMin <= i && i <= BrsMax) && (KolMin <= j && j <= KolMax);
-}
 
 /* *** Selektor: Untuk sebuah matriks M yang terdefinisi: *** */
 /* Mengirimkan indeks baris terkecil M */
@@ -50,9 +47,7 @@ indeks GetLastIdxKol (MATRIKS M){
   return M.NKolEff-1;
 }
 /* Mengirimkan true jika i, j adalah indeks efektif bagi M */
-boolean IsIdxEff (MATRIKS M, indeks i, indeks j){
-  return (BrsMin <= i && i <= M.NBrsEff-1) && (KolMin <= j && j <= M.NKolEff-1);
-}
+
 /* Mengirimkan elemen M(i,i) */
 ElType GetElmtDiagonal (MATRIKS M, indeks i){
   return Elmt(M, i, i);

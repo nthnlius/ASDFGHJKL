@@ -8,9 +8,9 @@ void CreateEmptyStack(Stack *S)
 {
     (*S).TOP= NilS;
     int i;
-    for (i=0 ; i<=MaxEl ; i++){
-        (*S).T[i]=NilS;
-    }
+//    for (i=0 ; i<=MaxEl ; i++){
+//        (*S).T[i]=NilS;
+//    }
 }
 
 /* ********* Predikat Untuk test keadaan KOLEKSI ********* */
@@ -117,11 +117,11 @@ void PrintStack(Stack S){
     printf("[");
     if (!IsStackEmpty(Stemp)){
         while (!IsStackOneElmt(Stemp)){
-            printf("%c  ", Stemp.T[Stemp.TOP]);
+            printf("%s  ", Stemp.T[Stemp.TOP]);
             Pop(&Stemp, &X);
             
         }
-        printf("%c", Stemp.T[Stemp.TOP]);
+        printf("%s", Stemp.T[Stemp.TOP]);
     }
     printf("]\n");
 }
