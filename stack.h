@@ -14,12 +14,12 @@ TOP adalah alamat elemen puncak*/
 
 typedef int bool;
 typedef char* infotypeS;
-typedef int address;
+typedef int addressS;
 
 typedef struct
 {
     infotypeS T[MaxEl];
-    address TOP;
+    addressS TOP;
 } Stack;
 
 /* Definisi stack S kosong : S.TOP = Nil */
