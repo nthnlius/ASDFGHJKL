@@ -10,8 +10,8 @@ void Ignore_Blank() {
 	while (!EOP() && ((CC==blank) || (CC==MARK1))) {
 		ADVINPUT();
 	}
-	if (EOP())
-		EndKata=true;
+	if (EOP()){
+		EndKata=true;}
 }
 
 void STARTKATAFILE(char* filename) {
@@ -87,6 +87,10 @@ void SalinKata() {
 	}
 	if (EOP())
 		EndKata = true;
+		//CKata.Length +=1;
+		CKata.TabKata[CKata.Length] = '\0';
+		//CKata.Length -=1;
+
 }
 
 //operasi lain
