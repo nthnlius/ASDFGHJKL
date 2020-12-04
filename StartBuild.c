@@ -1,12 +1,14 @@
 #include "queuelinkedlist.h"
 #include "command.h"
 #include "boolean.h"
+#include "stack.h"
 
 
-void StartBuild(QueueLL Q, int *CurrentlyBuilt){
+void StartBuild(QueueLL Q, int *CurrentlyBuilt, Stack *S){
     if (*CurrentlyBuilt == 0){
         if (HeadQLL(Q) != NilQLL){
             //printbatas();
+            CreateEmptyStack(S);
             printf("Item yang dibutuhkan oleh pesanan ini : \n");
             printf("%d", InfoHeadQLL(Q));
             *CurrentlyBuilt = 1;

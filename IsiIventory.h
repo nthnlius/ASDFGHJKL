@@ -25,3 +25,6 @@
     const char *psu[] = {"ATX 450 Watt", "ANS 500 Watt", "AVU Power 500 Watt", "Hein Power Supply 450 Watt"};
     const int hpsu[] = {120000, 135000, 140000, 210000};
 #endif
+
+//Harga bukanlah harga asli. harga ini dibuat tanpa melihat referensi apapun sehingga angka-angka ini hanyalah
+//angka-angka asal.
