@@ -7,6 +7,14 @@ int ReadInt(char * A){
     int x = atoi(A);
     return x;
 }
+int bacajumlahbuilding(char* filename){
+    int jml;
+    STARTKATAFILE(filename);
+    ADVKATA();
+    ADVKATA();
+    jml = ReadInt(CKata.TabKata);
+    return jml;
+}
 MATRIKS ReadFileMap(char* filename){
     MATRIKS yee;
     int Baris, Kolom;

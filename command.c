@@ -14,11 +14,23 @@ void PrintCommandBase(){
     printf("7. CHECKORDER\n");
     printf("8. END_DAY\n");
     printf("9. EXIT\n");
+    printbatas();
 }
 void PrintCommandShop(){
     printbatas();
     printf("1. MOVE\n");
     printf("2. SHOP\n");
-    printf("3. END_DAY\n");
-    printf("4. EXIT\n");
+    printf("3. STATUS\n");
+    printf("4. END_DAY\n");
+    printf("5. EXIT\n");
+    printbatas();
+}
+void PrintCommandCustomer(){
+    printbatas();
+    printf("1. MOVE\n");
+    printf("2. DELIVER\n");
+    printf("3. STATUS\n");
+    printf("4. END_DAY\n");
+    printf("5. EXIT\n");
+    printbatas();
 }

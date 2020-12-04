@@ -11,8 +11,7 @@ https://www.geeksforgeeks.org/generating-random-number-range-c/
 int Randoms(int lower, int upper) 
 { 
     int i; 
-    int num = (rand() % 
-        (upper - lower + 1)) + lower; 
+    int num = (rand() % (upper - lower + 1)) + lower; 
     return num;
 } 
   

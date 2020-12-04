@@ -2,6 +2,7 @@
 #define _Inventory_H_
 
 #include "arraydin.h"
+// #include "IsiIventory.h"
 
     // const char *motherboard[] = {"Asus Prime 27", "AsusROG Crosshair", "GigaByte B365M", "GigaByte B450M"}; 
     // const int hmotherboard[] = {3650000, 3030000, 2886900, 3418200};
@@ -30,7 +31,8 @@
     
     // int duit = 20000000;
 
-void shop(TabInt* T, int *jumlahuang);
+void shop(TabInt* T, long *jumlahuang);
 TabInt masukinisi();
+void PrintInventory(TabInt T);
 
 #endif

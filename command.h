@@ -6,5 +6,5 @@
 void printbatas();
 void PrintCommandBase();
 void PrintCommandShop();
-
+void PrintCommandCustomer();
 #endif

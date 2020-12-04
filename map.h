@@ -14,4 +14,6 @@ MATRIKS ReadFileMap(char* filename);
   I.S. pita of kata terdefinisi
   F.S. pita of kata dikonfigurasi sesuai dengan
        Spesifikasi Tugas Besar/ */
+
+int bacajumlahbuilding(char* filename);
 #endif

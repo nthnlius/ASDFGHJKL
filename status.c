@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include "boolean.h"
-#include "startbuild.c"
+#include "startbuild.h"
 #include "point.h"
-
+#include "arraydin.h"
+#include "inventory.h"
 
 // int main(){
 //   int jumlahuang = 2000;
@@ -15,13 +16,13 @@
 //   }
 //   return 0;
 // }
-void Status(){
-  printf("Uang Tersisa: "); printf("$ %d\n", jumlahuang); //uang lihat di command deliver, variabelnya apa
+void Status(long jumlahuang, int StartBuild, int point, int antrian, TabInt T){
+  printf("Uang Tersisa: "); printf("$ %lu\n", jumlahuang); //uang lihat di command deliver, variabelnya apa
   printf("Build yang sedang dikerjakan: ");
-  if (StartBuild){
-    printf("Pesanan #%d untuk pelanggan %c.\n", antrian, );
+  if (StartBuild == 1){
+    printf("Pesanan #%d untuk pelanggan %d.\n", antrian, antrian);
   }else{
-    printf("Sedang istirahat. \n");
+    printf("Sedang tidak ada yang dikerjakan. \n");
   }
   printf("Lokasi: ");
   if(point== 0){
@@ -46,7 +47,7 @@ void Status(){
     printf("Pemain sedang berada pada Pelanggan 9. \n");
   }
   printf("Inventory anda: \n");
-  TulisInventory(L);
+  PrintInventory(T);
 }
 //   printf("\n\n Build yang sedang dikerjakan: \n\n"); printf("Pesanan %bla untuk pelanggan %bla", pesanan, pelanggan);
 //   printf("\n\n Lokasi: \n\n"); printf("Pemain sedang berada dalam base")
