@@ -69,7 +69,7 @@ void TulisMATRIKS (MATRIKS M){
           printf("# ");
       }
       else {
-        printf("%c", Elmt(M, i, j)); if(j < GetLastIdxKol(M)) printf(" ");
+        printf("%c", ElmtM(M, i, j)); if(j < GetLastIdxKol(M)) printf(" ");
       }
     }
     if(i != GetLastIdxBrs(M)) printf("\n");
