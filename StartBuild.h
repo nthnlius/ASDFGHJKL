@@ -1,12 +1,14 @@
 #ifndef ___STARTBUILD_H___
 #define ___STARTBUILD_H___
 
+
+#include "queuelinkedlist.h"
 void printbatas();
 /* print batas antar command
    dengan character "=" sebanyak
    ntah berapa kali */
 
-void StartBuild(QueueLL Q, infotype * CurrentlyBuilt);
+void StartBuild(QueueLL Q, infotypeQLL * CurrentlyBuilt);
 /*memulai Build.
   Jika CurrentlyBuilt == Nil atau sedang tidak menjalankan
   build manapun, maka startbuild sukses dengan membaca
@@ -16,7 +18,7 @@ void StartBuild(QueueLL Q, infotype * CurrentlyBuilt);
   F.S. CurrentlyBuilt terdefinisi sebagai Head(Q) jika 
        Head(Q) != Nil. */
 
-void FinishBuild(QueueLL * Q, infotype * X);
+void FinishBuild(QueueLL * Q, infotypeQLL * X);
 /*  menyelesaikan built.
     Jika Stack sesuai dengan Head(Q), maka
     membebaskan memori Head(Q), me-nil-kan X.
