@@ -21,7 +21,7 @@ MATRIKS ReadFileMap(char* filename){
     int j;
     for (i = 0 ; i<NBrsEff(yee); i++){
         for (j = 0 ; j<NKolEff(yee);j++){
-            Elmt(yee, i, j) = ' ';
+            ElmtM(yee, i, j) = ' ';
         }
     }
     // TulisMATRIKS (yee);
@@ -52,7 +52,7 @@ MATRIKS ReadFileMap(char* filename){
     while (count <= JmlBuilding){
         i = kooryBuild[count-1];
         j = koorxBuild[count-1];
-        Elmt(yee, i, j) = NamaBuild[count-1];
+        ElmtM(yee, i, j) = NamaBuild[count-1];
         count++;
     }
     // printf("%c\n", NamaBuild[0]);
