@@ -37,7 +37,7 @@ typedef struct
 /* ********** SELEKTOR ********** */
 #define Neff(T) (T).Neff
 #define TI(T) (T).TI
-#define Elmt(T, i) (T).TI[(i)]
+#define ElmtAD(T, i) (T).TI[(i)]
 #define maxeldin(T) (T).maxeldin
 
 /* ********** KONSTRUKTOR ********** */
