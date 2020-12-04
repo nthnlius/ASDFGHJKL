@@ -29,7 +29,7 @@ int main(){
     QueueLL Pesanan;
     CreateQLL(&Pesanan);
     infotypeQLL *CurrentlyBuilt = NilQLL;
-    TabInt Inventory = masukinisi;
+    TabInt Inventory = masukinisi();
     Stack Komponen;
     CreateEmptyStack(&Komponen);
     while (start != false){
