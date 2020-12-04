@@ -119,7 +119,7 @@ void Sort(TabInt *T, boolean asc)
             key = ElmtAD(*T, i);
             j = i - 1;
             //
-            while ((j >= GetFirstIdx(*T)) && (Elmt(*T, j) > key))
+            while ((j >= GetFirstIdx(*T)) && (ElmtAD(*T, j) > key))
             {
                 ElmtAD(*T, j + 1) = ElmtAD(*T, j);
                 j--;
