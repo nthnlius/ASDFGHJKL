@@ -29,7 +29,7 @@ typedef struct
 /* ********* Prototype ********* */
 
 /* *** Konstruktor/Kreator *** */
-void CreateEmptyStack(Stack *S);
+Stack CreateEmptyStack();
 /* I.S. Sembarang */
 /* F.S. Membuat sebuah stack S yang kosong berkapasitas MaxEl */
 /* Ciri stack kosong : TOP bernilai Nil */
@@ -64,5 +64,5 @@ void ForcePush(Stack *S, infotypeS X);
         S berisi b c d e f g h i j k */
 void CopyStack(Stack * S, Stack * Sout);
 void InversStack(Stack S, Stack * Sout);
-void PrintStack(Stack S);
+void PrintStack(Stack *S);
 #endif

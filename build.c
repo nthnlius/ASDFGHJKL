@@ -33,14 +33,14 @@ void AddComponent(Stack* S, TabInt *T, int CB){
     if (( CB != 0 )){
         //while(strcmp(ac, "ADDCOMPONENT")==0){
             printf("Komponen yang telah terpasang: \n");
-            PrintStack(*S);
+            PrintStack(S);
             printf("Komponen yang tersedia: \n");
             while(j<32){ // NGEPRINT LIST KOMPONEN 
                 printf("%d. %s stock: %d\n", j+1, (*T).A[j], (*T).TI[j]);
                 j++;
             }
             printf("Komponen yang stocknya 0 tidak dapat dipasang! \n");
-            printf("Komponen X yang ingin dipasang: ");
+            printf("Komponen yang ingin dipasang: ");
             scanf("%d", &i); //nanti input (i) ini dikurang 1 untuk menyesuaikan index
 
             if( (*T).TI[i-1]== 0){ //kalau user milih komponen yang stocknya 0
