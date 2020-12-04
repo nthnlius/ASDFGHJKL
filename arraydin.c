@@ -88,7 +88,7 @@ boolean SearchB(TabInt T, ElType X)
     //
     while ((!Found) && (i <= GetLastIdx(T)))
     {
-        if (Elmt(T, i) == X)
+        if (ElmtAD(T, i) == X)
         {
             Found = true;
         }
@@ -116,16 +116,16 @@ void Sort(TabInt *T, boolean asc)
         IdxType j;
         for (IdxType i = GetFirstIdx(*T) + 1; i <= GetLastIdx(*T); i++)
         {
-            key = Elmt(*T, i);
+            key = ElmtAD(*T, i);
             j = i - 1;
             //
             while ((j >= GetFirstIdx(*T)) && (Elmt(*T, j) > key))
             {
-                Elmt(*T, j + 1) = Elmt(*T, j);
+                ElmtAD(*T, j + 1) = ElmtAD(*T, j);
                 j--;
             }
             //
-            Elmt(*T, j + 1) = key;
+            ElmtAD(*T, j + 1) = key;
         }
     }
     else
@@ -138,15 +138,15 @@ void Sort(TabInt *T, boolean asc)
             //
             for (IdxType j = i + 1; j <= GetLastIdx(*T); j++)
             {
-                if (Elmt(*T, j) > Elmt(*T, iMax))
+                if (ElmtAD(*T, j) > ElmtAD(*T, iMax))
                 {
                     iMax = j;
                 }
             }
             //
-            tmp = Elmt(*T, iMax);
-            Elmt(*T, iMax) = Elmt(*T, i);
-            Elmt(*T, i) = tmp;
+            tmp = ElmtAD(*T, iMax);
+            ElmtAD(*T, iMax) = ElmtAD(*T, i);
+            ElmtAD(*T, i) = tmp;
         }
     }
 }
