@@ -24,7 +24,7 @@ void MakeMATRIKS (int NB, int NK, MATRIKS * M){
 /* *** Selektor *** */
 #define NBrsEff(M) (M).NBrsEff
 #define NKolEff(M) (M).NKolEff
-#define Elmt(M,i,j) (M).Mem[(i)][(j)]
+#define ElmtM(M,i,j) (M).Mem[(i)][(j)]
 
 /* *** Selektor "DUNIA MATRIKS" *** */
 /* Mengirimkan true jika i, j adalah indeks yang valid untuk matriks apa pun */
@@ -69,7 +69,7 @@ void TulisMATRIKS (MATRIKS M){
           printf("# ");
       }
       else {
-        printf("%c", Elmt(M, i, j)); if(j < GetLastIdxKol(M)) printf(" ");
+        printf("%c", ElmtM(M, i, j)); if(j < GetLastIdxKol(M)) printf(" ");
       }
     }
     if(i != GetLastIdxBrs(M)) printf("\n");
