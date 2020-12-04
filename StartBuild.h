@@ -3,12 +3,14 @@
 
 
 #include "queuelinkedlist.h"
+#include "stack.h"
+#include "inventory.h"
 void printbatas();
 /* print batas antar command
    dengan character "=" sebanyak
    ntah berapa kali */
 
-void StartBuild(QueueLL Q, int CurrentlyBuilt);
+void StartBuild(QueueOrder * Q, int *CurrentlyBuilt, Stack *S, int *nb);
 /*memulai Build.
   Jika CurrentlyBuilt == Nil atau sedang tidak menjalankan
   build manapun, maka startbuild sukses dengan membaca
@@ -18,7 +20,7 @@ void StartBuild(QueueLL Q, int CurrentlyBuilt);
   F.S. CurrentlyBuilt terdefinisi sebagai Head(Q) jika 
        Head(Q) != Nil. */
 
-void FinishBuild(QueueLL * Q, int *X);
+void FinishBuild(QueueOrder * Q, int *X);
 /*  menyelesaikan built.
     Jika Stack sesuai dengan Head(Q), maka
     membebaskan memori Head(Q), me-nil-kan X.

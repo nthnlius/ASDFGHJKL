@@ -1,23 +1,21 @@
-#include "queuelinkedlist.h"
+
 #include "command.h"
 #include "boolean.h"
 #include "stack.h"
+#include "StartBuild.h"
+#include "queuelinkedlist.h"
 
-
-void StartBuild(QueueLL Q, int *CurrentlyBuilt, Stack *S){
+void StartBuild(QueueOrder * Q, int *CurrentlyBuilt, Stack *S, int *nb){
+// void StartBuild(QueueLL Q, int *CurrentlyBuilt){
     if (*CurrentlyBuilt == 0){
-        if (HeadQLL(Q) != NilQLL){
-            //printbatas();
+        if (HeadOrder(*Q) != NilOrder){
             CreateEmptyStack(S);
-            printf("Item yang dibutuhkan oleh pesanan ini : \n");
-            printf("%d", InfoHeadQLL(Q));
+            PrintKomponen(HeadOrder(*Q));
             *CurrentlyBuilt = 1;
-            //printbatas();
+            *nb ++;
         }
         else {
-            //printbatas();
             printf("Selamat! Semua pesanan telah selesai dikerjakan");
-            //printbatas();
         }
     }
     else{
@@ -26,10 +24,10 @@ void StartBuild(QueueLL Q, int *CurrentlyBuilt, Stack *S){
         printbatas();
     }
 }
-void FinishBuild(QueueLL * Q, int *X){
+void FinishBuild(QueueOrder * Q, int *X){
     *X = 0;
-    infotypeQLL A; //variabel dummy
-    DequeueQLL(Q, &A);
+    addressOrder A; //variabel dummy
+    DequeueOrder(Q, &A);
 }
 // int main(){
 //     Queue Q;

@@ -28,25 +28,37 @@ int main(){
         4 = ....
     */
     boolean DayENDED = false;
+    addressOrder P;
     int CountDay=0;
     MATRIKS Map = ReadFileMap("map.txt");
-    QueueLL Pesanan;
     int Jumbuild = bacajumlahbuilding("map.txt");
-    CreateQLL(&Pesanan);
     int CurrentlyBuilt = 0;
     TabInt Inventory;
     //printf("Selamat Datang di Santo Tycoon\n");
+            //printf("1\n");
+    MakeEmpty(&Inventory, 33);  
     Inventory = masukinisi();
     int antri = 0;
     int hargajob = 50000;
-    
+    int nomororder =0;
+    int jmlorder=0;
+    int i;
     Stack Komponen;
     CreateEmptyStack(&Komponen);
+    
+    QueueOrder Pesanan;
+    EmptyOrder(&Pesanan);
+    printf("aaaa : %d\n", HeadOrder(Pesanan)==NilOrder);
     while (start){
         CountDay++;
         Posisi =0;
         printf("Day - %d\n", CountDay);
         DayENDED=false;
+        jmlorder = rand() % (3)+2;
+        for (i=0;i<=jmlorder;i++){
+            P = MakeOrder();
+            EnqueueOrder (&Pesanan, P);
+        }
         while (!DayENDED){
             while (Posisi == 0){
                 PrintCommandBase();
@@ -59,7 +71,7 @@ int main(){
                     printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STARTBUILD")==0){
-                    StartBuild(Pesanan, CurrentlyBuilt);
+                    StartBuild(&Pesanan, &CurrentlyBuilt, &Komponen, &jmlorder);
                 }
                 else if (strcmp(CKata.TabKata, "ADDCOMPONENT")==0){
                     AddComponent (&Komponen, &Inventory, CurrentlyBuilt);
@@ -85,7 +97,7 @@ int main(){
                 }
                 else if (strcmp(CKata.TabKata, "CHECKORDER")==0){
                     //PrintQueueLL(Komponen);
-                    printf("Nampilin order\n");
+                    PrintQueue(Pesanan);
                 }
                 else if (strcmp(CKata.TabKata, "SHOP")==0){
                     Posisi = 1;
