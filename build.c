@@ -8,7 +8,7 @@
 // #include "inventory.c"
 
 // skr versi inventory arrydin tapi blom dicoba karena bingung :<
-void AddComponent(Stack* S, TabInt *T, infotypeQLL *CB){
+void AddComponent(Stack* S, TabInt *T, int CB){
     // di startbuild createstack harusnya
     // CreateEmptyStack(&S);
     int i,j,z,w;
@@ -30,7 +30,7 @@ void AddComponent(Stack* S, TabInt *T, infotypeQLL *CB){
     // printf("ENTER COMMAND: ");
     // scanf("%s", ac);
 
-    if (( CB != NilQLL )){
+    if (( CB != 0 )){
         //while(strcmp(ac, "ADDCOMPONENT")==0){
             printf("Komponen yang telah terpasang: \n");
             PrintStack(*S);
@@ -63,7 +63,7 @@ void AddComponent(Stack* S, TabInt *T, infotypeQLL *CB){
     }
 }
 
-void RemoveComponent(Stack* S, TabInt *T, infotypeQLL *CB){
+void RemoveComponent(Stack* S, TabInt *T, int CB){
     // di startbuild createstack harusnya
     int i,j,z,w;
     j = 0;
@@ -86,7 +86,7 @@ void RemoveComponent(Stack* S, TabInt *T, infotypeQLL *CB){
     // printf("ENTER COMMAND: ");
     // scanf("%s", ac);
 
-    if(( CB != NilQLL )){
+    if(( CB != 0 )){
         //while(strcmp(ac, "REMOVECOMPONENT")==0){
             if (!IsStackEmpty(*S)){
                 Pop(S, &X);

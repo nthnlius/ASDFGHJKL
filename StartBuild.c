@@ -1,14 +1,15 @@
 #include "queuelinkedlist.h"
 #include "command.h"
+#include "boolean.h"
 
 
-void StartBuild(QueueLL Q, infotypeQLL CurrentlyBuilt){
-    if (CurrentlyBuilt == -999){
+void StartBuild(QueueLL Q, int *CurrentlyBuilt){
+    if (*CurrentlyBuilt == 0){
         if (HeadQLL(Q) != NilQLL){
             //printbatas();
             printf("Item yang dibutuhkan oleh pesanan ini : \n");
             printf("%d", InfoHeadQLL(Q));
-            CurrentlyBuilt = InfoHeadQLL(Q);
+            *CurrentlyBuilt = 1;
             //printbatas();
         }
         else {
@@ -23,8 +24,8 @@ void StartBuild(QueueLL Q, infotypeQLL CurrentlyBuilt){
         printbatas();
     }
 }
-void FinishBuild(QueueLL * Q, infotypeQLL X){
-    X = -999;
+void FinishBuild(QueueLL * Q, int *X){
+    *X = 0;
     infotypeQLL A; //variabel dummy
     DequeueQLL(Q, &A);
 }

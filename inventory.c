@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "string.h"
 #include "arraydin.h"
+#include "inventory.h"
 
 
     // UNTUK KEPERLUAN MEMBELI KOMPONEN
@@ -30,7 +31,7 @@
     const int hpsu[] = {120000, 135000, 140000, 210000};    
     
     
-    int jumlahuang = 20000000;
+    int duit = 20000000;
 
 
 
@@ -475,10 +476,10 @@ void shop(TabInt* T, int *jumlahuang){
 }
  
 
- TabInt masukinisi(TabInt *T){
+ TabInt masukinisi(){
     //TabInt T;
-    
-    MakeEmpty(T, 32);     // Membuat empty array dengan 32 elemen kosong. Asumsi semua komponen mendapat tempat satu
+    TabInt *T;
+    MakeEmpty(T, 33);     // Membuat empty array dengan 32 elemen kosong. Asumsi semua komponen mendapat tempat satu
 
 
     // (*T).A[i] melambangkan nama barang, dan (*T).TI[i] adalah jumlah inventory

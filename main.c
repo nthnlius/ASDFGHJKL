@@ -1,7 +1,7 @@
 // #include "build.h"
 #include "arraydin.h"
 #include "boolean.h"
-
+#include "build.h"
 #include "inventory.h"
 #include "map.h"
 #include "matriks.h"
@@ -14,10 +14,12 @@
 #include "StartBuild.h"
 #include "command.h"
 
+#include <string.h>
 
 int main(){
     boolean start = true;
     int Posisi = 0;
+    int duit = 0;
     /*  0= base
         1 = shop
         2 = customer
@@ -28,14 +30,18 @@ int main(){
     MATRIKS Map = ReadFileMap("map.txt");
     QueueLL Pesanan;
     CreateQLL(&Pesanan);
-    infotypeQLL *CurrentlyBuilt = NilQLL;
-    TabInt Inventory = masukinisi();
+    int CurrentlyBuilt = 0;
+    TabInt Inventory;
+    //printf("Selamat Datang di Santo Tycoon\n");
+    Inventory = masukinisi();
+    
     Stack Komponen;
     CreateEmptyStack(&Komponen);
-    while (start != false){
+    while (start){
         CountDay++;
         Posisi =0;
         printf("Day - %d\n", CountDay);
+        DayENDED=false;
         while (!DayENDED){
             while (Posisi == 0){
                 PrintCommandBase();
@@ -47,22 +53,25 @@ int main(){
                     printf("harusnya Move\n");
                 }
                 else if (strcmp(CKata.TabKata, "STARTBUILD")==0){
-                    StartBuild(Pesanan, &CurrentlyBuilt);
+                    StartBuild(Pesanan, CurrentlyBuilt);
                 }
                 else if (strcmp(CKata.TabKata, "ADDCOMPONENT")==0){
-                    ADDComponent (&Komponen, &Inventory, CurrentlyBuilt);
+                    AddComponent (&Komponen, &Inventory, CurrentlyBuilt);
                 }
                 else if (strcmp(CKata.TabKata, "REMOVECOMPONENT")==0){
                     RemoveComponent(&Komponen, &Inventory, CurrentlyBuilt);
                 }
                 else if (strcmp(CKata.TabKata, "EXIT")==0){
                     start = false;
+                    Posisi = 999;
+                    DayENDED = true;
                 }
                 else if (strcmp(CKata.TabKata, "END_DAY")==0){
                     DayENDED=true;
+                    Posisi =999;
                 }
                 else if (strcmp(CKata.TabKata, "FINISHBUILD")==0){
-                    FinishBuild(&Pesanan , CurrentlyBuilt);
+                    FinishBuild(&Pesanan , &CurrentlyBuilt);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
@@ -89,7 +98,7 @@ int main(){
                 /*1=Move
                   2=BuyItem*/
                 if (strcmp(CKata.TabKata, "SHOP")==0){
-                    shop(&Inventory);
+                    shop(&Inventory, &duit);
                 }
                 else if (strcmp(CKata.TabKata, "EXIT")==0){
                     start = false;
@@ -102,6 +111,8 @@ int main(){
                     printf("Harusnya Move\n");
                 }
             }
+        }
     }
-}
+    printf("Terima kasih. \n");
+    return 0;
 }

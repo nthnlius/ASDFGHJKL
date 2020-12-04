@@ -3,7 +3,9 @@
 
 #include "stack.h"
 #include "arraydin.h"
+#include "queuelinkedlist.h"
 
-void AddComponent(Stack* S, TabInt *T);
-void RemoveComponent(Stack* S, TabInt *T);
+void AddComponent(Stack* S, TabInt *T, int CB);
+void RemoveComponent(Stack* S, TabInt *T, int CB);
 
+#endif
