@@ -1,6 +1,8 @@
 #ifndef ___STARTBUILD_H___
 #define ___STARTBUILD_H___
 
+ 
+
 void printbatas();
 /* print batas antar command
    dengan character "=" sebanyak

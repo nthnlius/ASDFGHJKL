@@ -1,4 +1,4 @@
-#include "build.h"
+// #include "build.h"
 #include "arraydin.h"
 #include "boolean.h"
 
@@ -29,7 +29,7 @@ int main(){
     QueueLL Pesanan;
     CreateQLL(&Pesanan);
     infotypeQLL *CurrentlyBuilt = NilQLL;
-    TabInt Inventory = masukinisi;
+    TabInt Inventory = masukinisi();
     Stack Komponen;
     CreateEmptyStack(&Komponen);
     while (start != false){
@@ -47,7 +47,7 @@ int main(){
                     printf("harusnya Move\n");
                 }
                 else if (strcmp(CKata.TabKata, "STARTBUILD")==0){
-                    StartBuild(&Pesanan, &CurrentlyBuilt);
+                    StartBuild(Pesanan, &CurrentlyBuilt);
                 }
                 else if (strcmp(CKata.TabKata, "ADDCOMPONENT")==0){
                     ADDComponent (&Komponen, &Inventory, CurrentlyBuilt);
@@ -103,4 +103,5 @@ int main(){
                 }
             }
     }
+}
 }
