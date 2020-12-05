@@ -666,7 +666,7 @@ void PuntenGopud(TabInt *T, int *noplg, int Posisi, unsigned long *duit, int *ho
             *duit += *honor;
             *honor =0;
             *noplg = -999;
-            printf("Pesanan %d telah dikirim. \n", noorder);
+            printf("Pesanan #%d telah dikirim. \n", noorder);
         }
         else {
             printf("Pelanggan ngambek dikarenakan pesanan tidak sesuai aplikasi \n");
@@ -682,7 +682,7 @@ void CheckOrderGopud (int noorder, int Curr, QueueOrder Q){
         addressOrder P;
         P = HeadOrder(Q);
         printf("Nomor Order : %d\n", noorder);
-        printf("Pesanan untuk Customer %d \n", InfoPart(P, 0));
+        printf("Pesanan untuk Customer %d \n", InfoPart(P, 0)+1);
         printf("Invoice : %d \n", HitungHonor(P));
         PrintKomponen(P);
     }

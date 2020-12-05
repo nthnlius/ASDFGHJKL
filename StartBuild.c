@@ -33,9 +33,8 @@ void StartBuild(QueueOrder * Q, int *CurrentlyBuilt, Stack *S, int *nb, int *hon
         printbatas();
     }
 }
-void FinishBuild(QueueOrder * Q, int *X, Stack *S, TabInt *T){
-    int i = 1;
-    boolean sama;
+void FinishBuild(QueueOrder * Q, int *X, Stack *S, TabInt *T, int noorder){
+    int huaa = InfoPart(HeadOrder(*Q), 0);
     if (*X == 0){
         printf("blom ngbuild bang\n");
     }
@@ -47,7 +46,7 @@ void FinishBuild(QueueOrder * Q, int *X, Stack *S, TabInt *T){
                 addressOrder A; //variabel dummy
                 A=HeadOrder(*Q);
                 DequeueOrder(Q, &A);
-                printf("PESANAN SUDAH JADI BWANG \n");
+                printf("Pesanan %d telah selesai. Silahkan diantar ke pelanggan %d\n", noorder, huaa);
                 (*T).TI[(*T).Neff] = 1;
                 (*T).A[(*T).Neff] = "Pesanan";
             }

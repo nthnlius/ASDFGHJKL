@@ -148,15 +148,17 @@ int PINDAH(Graph G, int Posisi){
     }
     printf("Masukkan Tujuan : ");
     scanf("%d", &piltu);
-    Pos = tujuan [piltu-1];
-    if (Pos == 0){
-        printf("Posisi anda di Base.\n");
-    }
-    else if (Pos == 1){
-        printf("Posisi anda di Shop.\n");
-    }
-    else{
-        printf("Posisi anda di Pelanggan %d\n", Pos-1);
+    if (piltu <= j){
+        Pos = tujuan [piltu-1];
+        if (Pos == 0){
+            printf("Posisi anda di Base.\n");
+        }
+        else if (Pos == 1){
+            printf("Posisi anda di Shop.\n");
+        }
+        else{
+            printf("Posisi anda di Pelanggan %d\n", Pos-1);
+        }
     }
     return Pos;
 }

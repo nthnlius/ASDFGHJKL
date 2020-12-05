@@ -39,7 +39,7 @@ int main(){
     MakeEmpty(&Inventory, 100);  
     Inventory = masukinisi();
     int hargajob = 0;
-    int nomororder =0;
+    int nomororder = 1;
     int jmlorder=0;
     int i;
     Stack Komponen;
@@ -92,7 +92,7 @@ int main(){
                     Posisi =999;
                 }
                 else if (strcmp(CKata.TabKata, "FINISHBUILD")==0){
-                    FinishBuild(&Pesanan , &CurrentlyBuilt, &Komponen, &Inventory);
+                    FinishBuild(&Pesanan , &CurrentlyBuilt, &Komponen, &Inventory, nomororder);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
@@ -102,9 +102,9 @@ int main(){
                     //PrintQueueLL(Komponen);
                     CheckOrderGopud (jmlorder, CurrentlyBuilt, Pesanan);
                 }
-                else if (strcmp(CKata.TabKata, "SHOP")==0){
-                    Posisi = 1;
-                }
+                // else if (strcmp(CKata.TabKata, "SHOP")==0){bantuan untuk bypass ke shop saat movenya masih dirandom
+                //     Posisi = 1;
+                // }
                 // else if (strcmp(CKata.TabKata, "CUSTOMER")==0){
                 //     Posisi = rand() % (10);
                 // }
@@ -151,6 +151,9 @@ int main(){
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
                     Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg,  Inventory);
+                }else if (strcmp(CKata.TabKata, "MAP")==0){
+                    TulisMATRIKS (Map);
+                    printf("\n");
                 }
                 else {
                     printf("Command salah!\n");
@@ -182,6 +185,10 @@ int main(){
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
                     Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg, Inventory);
+                }
+                else if (strcmp(CKata.TabKata, "MAP")==0){
+                    TulisMATRIKS (Map);
+                    printf("\n");
                 }
                 else {
                     printf("Command salah!\n");
