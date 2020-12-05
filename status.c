@@ -25,26 +25,14 @@ void Status(unsigned long jumlahuang, int StartBuild, int point, int antrian, in
     printf("Sedang tidak ada yang dikerjakan. \n");
   }
   printf("Lokasi: ");
-  if(point== 0){
-    printf("Pemain sedang berada pada Base. \n");
-  }else if(point == 1){
-    printf("Pemain sedang berada pada Shop. \n");
-  }else if(point == 2){
-    printf("Pemain sedang berada pada Pelanggan 2. \n");
-  }else if(point == 3){
-    printf("Pemain sedang berada pada Pelanggan 3. \n");
-  }else if(point == 4){
-    printf("Pemain sedang berada pada Pelanggan 4. \n");
-  }else if(point == 5){
-    printf("Pemain sedang berada pada Pelanggan 5. \n");
-  }else if(point == 6){
-    printf("Pemain sedang berada pada Pelanggan 6. \n");
-  }else if(point == 7){
-    printf("Pemain sedang berada pada Pelanggan 7. \n");
-  }else if(point == 8){
-    printf("Pemain sedang berada pada Pelanggan 8. \n");
-  }else if(point == 9){
-    printf("Pemain sedang berada pada Pelanggan 9. \n");
+  if (point ==0){
+    printf ("Base.\n");
+  }
+  else if (point == 1){
+    printf ("Shop.\n");
+  }
+  else{
+    printf("Rumah Pelanggan %d\n", point-1);
   }
   printf("Inventory anda: \n");
   PrintInventory(T);

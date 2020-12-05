@@ -46,6 +46,8 @@ int main(){
     Stack Komponen;
     Komponen = CreateEmptyStack();
     int noplg=-999;
+    Graph G;
+    G = CreateGraph ("map.txt");
     
     QueueOrder Pesanan;
     EmptyOrder(&Pesanan);
@@ -68,8 +70,8 @@ int main(){
                 if (strcmp(CKata.TabKata, "MOVE")==0){
                     //MOVE movean
                     //Posisi berubah
-                    Posisi = rand() % (Jumbuild);
-                    printf("Kamu sekarang ada di building ke - %d", Posisi);
+                    Posisi = PINDAH(G, Posisi+1);
+                    //printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STARTBUILD")==0){
                     StartBuild(&Pesanan, &CurrentlyBuilt, &Komponen, &nomororder, &hargajob, Inventory, &noplg);
@@ -143,8 +145,8 @@ int main(){
                 }
                 else if(strcmp(CKata.TabKata, "MOVE")==0){
                     //Move;
-                    Posisi = rand() % (Jumbuild);
-                    printf("Kamu sekarang ada di building ke - %d", Posisi);
+                    Posisi = PINDAH(G, Posisi+1);
+                    //printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
@@ -154,7 +156,7 @@ int main(){
                     printf("Command salah!\n");
                 }
             }
-            while (Posisi >=2 && Posisi <=10){
+            while (Posisi >=2 && Posisi <=Jumbuild){
                 PrintCommandCustomer();
                 /*1=Move
                   2=BuyItem*/
@@ -174,8 +176,8 @@ int main(){
                 }
                 else if(strcmp(CKata.TabKata, "MOVE")==0){
                     //Move;
-                    Posisi = rand() % (Jumbuild);
-                    printf("Kamu sekarang ada di building ke - %d", Posisi);
+                    Posisi = PINDAH(G, Posisi+1);
+                    //printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status

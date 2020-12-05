@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "matriks.h"
 #include "graph.h"
+#include "point.h"
 
 int ReadInt(char * A){
     int x = atoi(A);
@@ -25,7 +26,7 @@ MATRIKS ReadFileMap(char* filename){
     //printf("\nCurrent Char : %d\n", Baris);
     ADVKATA();
     Kolom = ReadInt (CKata.TabKata);
-    MakeMATRIKS(Kolom, Baris, &yee);
+    MakeMATRIKS(Baris, Kolom, &yee);
     int i;
     int j;
     for (i = 0 ; i<NBrsEff(yee); i++){
@@ -57,11 +58,18 @@ MATRIKS ReadFileMap(char* filename){
         kooryBuild[i]=ReadInt (CKata.TabKata);
     }
     int count;
-    count =1;
+    int num='1';
+    count = 1;
     while (count <= JmlBuilding){
-        i = kooryBuild[count-1];
-        j = koorxBuild[count-1];
-        ElmtM(yee, i, j) = NamaBuild[count-1];
+        i = koorxBuild[count-1];
+        j = kooryBuild[count-1];
+        if (count  >= 3){
+            ElmtM(yee, i, j) = (char)(num);
+            num++;
+        }
+        else{
+            ElmtM(yee, i, j) = NamaBuild[count-1];
+        }
         count++;
     }
     // printf("%c\n", NamaBuild[0]);
@@ -69,7 +77,7 @@ MATRIKS ReadFileMap(char* filename){
     return yee;
 }
 
-Graph CreatedGraph(char* filename){
+Graph CreateGraph(char* filename){
     Graph G;
     CreateEmptyGraph(&G);
     STARTKATAFILE(filename); // 
@@ -108,19 +116,47 @@ Graph CreatedGraph(char* filename){
 //     map = ReadFileMap("map.txt");
 //     TulisMATRIKS(map);
 // }
-int main(){
-    Graph G;
-    CreateEmptyGraph(&G);
-    G = CreatedGraph("map.txt");
-    printf("1\n");
+int PINDAH(Graph G, int Posisi){
+    // Graph G;
+    // CreateEmptyGraph(&G);
+    // G = CreatedGraph("map.txt");
+    //printf("1\n");
     int i=0;
     int j = 0;
-    int Posisi = 2;
+    int Pos = 2;
     int jml = bacajumlahbuilding("map.txt");
+    int tujuan [jml];
+    int piltu;
     for (i = 0 ; i < jml;i++){
         if (IsLinked(G, Posisi, i+1)){
-            printf("%d. Bangunan %d\n", j+1, i+1);
-            j++;
+            if (i == 0){
+                printf("%d. Base \n", j+1);
+                tujuan [j] = i;
+                j++;
+            }
+            else if (i == 1 ){
+                printf("%d. Shop \n", j+1);
+                tujuan [j] = i;
+                j++;
+            }
+            else{
+                printf("%d. Pelanggan %d\n", j+1, i-1);
+                tujuan [j] = i;
+                j++;
+            }
         }
     }
+    printf("Masukkan Tujuan : ");
+    scanf("%d", &piltu);
+    Pos = tujuan [piltu-1];
+    if (Pos == 0){
+        printf("Posisi anda di Base.\n");
+    }
+    else if (Pos == 1){
+        printf("Posisi anda di Shop.\n");
+    }
+    else{
+        printf("Posisi anda di Pelanggan %d\n", Pos-1);
+    }
+    return Pos;
 }
