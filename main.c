@@ -38,8 +38,7 @@ int main(){
             //printf("1\n");
     MakeEmpty(&Inventory, 100);  
     Inventory = masukinisi();
-    int antri = 0;
-    int hargajob = 50000;
+    int hargajob = 0;
     int nomororder =0;
     int jmlorder=0;
     int i;
@@ -57,7 +56,8 @@ int main(){
         Posisi =0;
         printf("Day - %d\n", CountDay);
         DayENDED=false;
-        jmlorder = rand() % (3)+2;
+        //jmlorder = rand() % (3)+2;
+        jmlorder = 0;
         for (i=0;i<=jmlorder;i++){
             P = MakeOrder();
             EnqueueOrder (&Pesanan, P);
@@ -163,7 +163,7 @@ int main(){
                 printf("Masukkan Command : ");
                 STARTKATAINPUT();
                 if (strcmp(CKata.TabKata, "DELIVER")==0){
-                    PuntenGopud(&Inventory, &noplg, Posisi, &duit, &hargajob);
+                    PuntenGopud(&Inventory, &noplg, Posisi, &duit, &hargajob, nomororder);
                 }
                 else if (strcmp(CKata.TabKata, "EXIT")==0){
                     start = false;

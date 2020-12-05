@@ -63,6 +63,6 @@ void PrintQueue(QueueOrder Q);
 void PrintKomponen(addressOrder P);
 int HitungHonor(addressOrder P);
 boolean checkstack(Stack S, QueueOrder Q);
-void PuntenGopud(TabInt *T, int* noplg, int Posisi, unsigned long *duit, int *honor);
+void PuntenGopud(TabInt *T, int *noplg, int Posisi, unsigned long *duit, int *honor, int noorder);
 void CheckOrderGopud (int noorder, int Curr, QueueOrder Q);
 #endif
