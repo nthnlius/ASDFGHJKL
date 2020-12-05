@@ -5,6 +5,7 @@
 #include "inventory.h"
 #include "IsiIventory.h"
 #include "map.h"
+#include <string.h>
 
 
     // UNTUK KEPERLUAN MEMBELI KOMPONEN
@@ -521,7 +522,7 @@ void shop(TabInt* T, long *jumlahuang){
     (*T).A[16] = "Alseye H120D";                   (*T).A[32] = "Hein Power Supply 450 Watt";
     (*T).TI[16] = 8;                               (*T).TI[32] = 9;
 
-    
+    (*T).Neff = 32;
     
      //shop(T);
     // printf("%s berjumlah %d", (*T).A[1], (*T).TI[1]);  CUMA NGETEST
@@ -530,7 +531,7 @@ void shop(TabInt* T, long *jumlahuang){
 void PrintInventory(TabInt T){
     int i;
     //printf("Uang anda : %d \n Inventory anda : \n", jumlahuang);
-    for (i=1;i<33;i++){
+    for (i=1;i<T.Neff;i++){
         printf("%s berjumlah %d\n", T.A[i], T.TI[i]);
     }
 }
@@ -628,7 +629,7 @@ void PrintQueue(QueueOrder Q){
     printf("]\n");
 }
 void PrintKomponen(addressOrder P){
-    int i;
+    //int i;
     printf("Komponen: \n");
     printf("1. %s \n", motherboard[InfoPart(P,1)]);
     printf("2. %s \n", cpu[InfoPart(P,2)]);
@@ -639,7 +640,53 @@ void PrintKomponen(addressOrder P){
     printf("7. %s \n", storage[InfoPart(P,7)]);
     printf("8. %s \n", psu[InfoPart(P,8)]);
 }
+boolean checkstack(Stack S, QueueOrder Q){
+    addressOrder P;
+    P = HeadOrder(Q);
+    boolean checkmotherboard, checkcpu, checkmemory, checkcooler, checkcases, checkgpu, checkstorage, checkpsu;
+    checkmotherboard = (S.T[0]==motherboard[InfoPart(P, 1)]);
+    checkcpu = (S.T[1]==cpu[(InfoPart(P,2))]);
+    checkmemory = (S.T[2]==memory[InfoPart(P,3)]);
+    checkcooler = (S.T[3]==cpucooler[InfoPart(P,4)]);
+    checkcases= (S.T[4]== cases[InfoPart(P,5)]);
+    checkgpu = (S.T[5]==gpu[InfoPart(P,6)]);
+    checkstorage =(S.T[6]==storage[InfoPart(P,7)]);
+    checkpsu = (S.T[7]==psu[InfoPart(P,8)]);
+    boolean checkall;
+    checkall = (checkmotherboard && checkcpu && checkmemory && checkcooler && checkcases && checkgpu && checkstorage && checkpsu);
+    return (checkall);
+}
+void PuntenGopud(TabInt *T, int *noplg, int Posisi, unsigned long *duit, int *honor){
+    if (((*noplg)+2) != Posisi){
+        printf("Salah tempat, Mas. saya ga pesan gopud\n");
+    }
+    else {
+        if (strcmp((*T).A[(*T).Neff], "Pesanan")==0){
+            (*T).Neff --;
+            *duit += *honor;
+            *honor =0;
+            *noplg = -999;
+            printf("Gopud sudah terkirim. Sekarang anda diusir customer. \n");
+        }
+        else {
+            printf("Pelanggan ngambek dikarenakan pesanan tidak sesuai aplikasi \n");
+        }
+    }
 
+}
+void CheckOrderGopud (int noorder, int Curr, QueueOrder Q){
+    if (Curr == 0){
+        printf("Anda nganggur. Cari kerja sono jangan jadi beban ortu.\n");
+    }
+    else {
+        addressOrder P;
+        P = HeadOrder(Q);
+        printf("Nomor Order : %d\n", noorder);
+        printf("Pesanan untuk Customer %d \n", InfoPart(P, 0));
+        printf("Invoice : %d \n", HitungHonor(P));
+        PrintKomponen(P);
+    }
+}
 //  int main(){
 //      TabInt T;
 //     T = masukinisi();

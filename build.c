@@ -12,7 +12,7 @@ void AddComponent(Stack* S, TabInt *T, int CB){
     // di startbuild createstack harusnya
     // CreateEmptyStack(&S);
     int i,j,z,w;
-    j = 0;
+    j = 1;
     z = 0;
     w = 0;
 

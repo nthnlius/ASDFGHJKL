@@ -10,7 +10,7 @@ TOP adalah alamat elemen puncak*/
 #define false 0
 #define true 1
 #define NilS -1
-#define MaxEl 10
+#define MaxEl 50
 
 typedef int bool;
 typedef char* infotypeS;
@@ -22,7 +22,7 @@ typedef struct
     addressS TOP;
 } Stack;
 
-/* Definisi stack S kosong : S.TOP = Nil */
+/* Definisi stack S kosong : S.TOP = NilS */
 /* S.TOP = jumlah element stack */
 /* S.T[S.TOP-1] = element paling atas */
 

@@ -3,6 +3,6 @@
 
 #include "arraydin.h"
 
-void Status(long jumlahuang, int StartBuild, int point, int antrian, TabInt T);
+void Status(unsigned long jumlahuang, int StartBuild, int point, int antrian, int noplg,  TabInt T);
 
 #endif
