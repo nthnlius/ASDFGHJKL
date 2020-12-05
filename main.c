@@ -36,7 +36,7 @@ int main(){
     TabInt Inventory;
     //printf("Selamat Datang di Santo Tycoon\n");
             //printf("1\n");
-    MakeEmpty(&Inventory, 33);  
+    MakeEmpty(&Inventory, 100);  
     Inventory = masukinisi();
     int antri = 0;
     int hargajob = 50000;
@@ -45,10 +45,11 @@ int main(){
     int i;
     Stack Komponen;
     Komponen = CreateEmptyStack();
+    int noplg=-999;
     
     QueueOrder Pesanan;
     EmptyOrder(&Pesanan);
-    printf("aaaa : %d\n", HeadOrder(Pesanan)==NilOrder);
+    //printf("aaaa : %d\n", HeadOrder(Pesanan)==NilOrder);
     while (start){
         CountDay++;
         Posisi =0;
@@ -71,7 +72,7 @@ int main(){
                     printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STARTBUILD")==0){
-                    StartBuild(&Pesanan, &CurrentlyBuilt, &Komponen, &jmlorder);
+                    StartBuild(&Pesanan, &CurrentlyBuilt, &Komponen, &nomororder, &hargajob, Inventory, &noplg);
                 }
                 else if (strcmp(CKata.TabKata, "ADDCOMPONENT")==0){
                     AddComponent (&Komponen, &Inventory, CurrentlyBuilt);
@@ -89,15 +90,15 @@ int main(){
                     Posisi =999;
                 }
                 else if (strcmp(CKata.TabKata, "FINISHBUILD")==0){
-                    FinishBuild(&Pesanan , &CurrentlyBuilt);
+                    FinishBuild(&Pesanan , &CurrentlyBuilt, &Komponen, &Inventory);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
-                    Status(duit, CurrentlyBuilt, Posisi, antri, Inventory);
+                    Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg,  Inventory);
                 }
                 else if (strcmp(CKata.TabKata, "CHECKORDER")==0){
                     //PrintQueueLL(Komponen);
-                    PrintQueue(Pesanan);
+                    CheckOrderGopud (jmlorder, CurrentlyBuilt, Pesanan);
                 }
                 else if (strcmp(CKata.TabKata, "SHOP")==0){
                     Posisi = 1;
@@ -147,7 +148,7 @@ int main(){
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
-                    Status(duit, CurrentlyBuilt, Posisi, antri, Inventory);
+                    Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg,  Inventory);
                 }
                 else {
                     printf("Command salah!\n");
@@ -160,10 +161,7 @@ int main(){
                 printf("Masukkan Command : ");
                 STARTKATAINPUT();
                 if (strcmp(CKata.TabKata, "DELIVER")==0){
-                    printf("barang sudah di deliver\n");
-                    printf("uang anda bertambah sebanyak : %d", hargajob);
-                    duit +=hargajob;
-                    hargajob=0;
+                    PuntenGopud(&Inventory, &noplg, Posisi, &duit, &hargajob);
                 }
                 else if (strcmp(CKata.TabKata, "EXIT")==0){
                     start = false;
@@ -181,7 +179,7 @@ int main(){
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
-                    Status(duit, CurrentlyBuilt, Posisi, antri, Inventory);
+                    Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg, Inventory);
                 }
                 else {
                     printf("Command salah!\n");

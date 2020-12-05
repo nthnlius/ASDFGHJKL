@@ -10,7 +10,7 @@ TOP adalah alamat elemen puncak*/
 #define false 0
 #define true 1
 #define NilS -1
-#define MaxEl 10
+#define MaxEl 50
 
 typedef int bool;
 typedef char* infotypeS;

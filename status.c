@@ -16,11 +16,11 @@
 //   }
 //   return 0;
 // }
-void Status(long jumlahuang, int StartBuild, int point, int antrian, TabInt T){
+void Status(unsigned long jumlahuang, int StartBuild, int point, int antrian, int noplg,  TabInt T){
   printf("Uang Tersisa: "); printf("$ %lu\n", jumlahuang); //uang lihat di command deliver, variabelnya apa
   printf("Build yang sedang dikerjakan: ");
   if (StartBuild == 1){
-    printf("Pesanan #%d untuk pelanggan %d.\n", antrian, antrian);
+    printf("Pesanan %d untuk pelanggan %d.\n", antrian, noplg+2);
   }else{
     printf("Sedang tidak ada yang dikerjakan. \n");
   }

@@ -2,6 +2,7 @@
 #define _Inventory_H_
 
 #include "arraydin.h"
+#include "stack.h"
 // #include "IsiIventory.h"
 
     // const char *motherboard[] = {"Asus Prime 27", "AsusROG Crosshair", "GigaByte B365M", "GigaByte B450M"}; 
@@ -61,4 +62,7 @@ void PrintOrder(QueueOrder Q);
 void PrintQueue(QueueOrder Q);
 void PrintKomponen(addressOrder P);
 int HitungHonor(addressOrder P);
+boolean checkstack(Stack S, QueueOrder Q);
+void PuntenGopud(TabInt *T, int* noplg, int Posisi, unsigned long *duit, int *honor);
+void CheckOrderGopud (int noorder, int Curr, QueueOrder Q);
 #endif
