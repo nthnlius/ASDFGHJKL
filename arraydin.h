@@ -46,7 +46,7 @@ void MakeEmpty(TabInt *T, int maxeldin);
 /* I.S. T sembarang, maxel > 0 */
 /* F.S. Terbentuk tabel T kosong dengan kapasitas maxel + 1 */
 
-void Dealokasi(TabInt *T);
+void DealokasiAr(TabInt *T);
 /* I.S. T terdefinisi; */
 /* F.S. TI(T) dikembalikan ke system, MaxEl(T)=0; Neff(T)=0 */
 

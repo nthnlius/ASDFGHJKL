@@ -54,15 +54,28 @@ typedef struct {
 
 /*Creator*/
 void EmptyOrder(QueueOrder * Q);
+/*Membuat order kosong*/
+
 addressOrder MakeOrder(void);
+
 void DealokasiOrder (addressOrder P);
+
 void EnqueueOrder (QueueOrder * Q, addressOrder P);
+
 void DequeueOrder(QueueOrder * Q, addressOrder * P);
+
 void PrintOrder(QueueOrder Q);
+
 void PrintQueue(QueueOrder Q);
+
 void PrintKomponen(addressOrder P);
+
 int HitungHonor(addressOrder P);
+
 boolean checkstack(Stack S, QueueOrder Q);
+
 void PuntenGopud(TabInt *T, int* noplg, int Posisi, unsigned long *duit, int *honor);
+
 void CheckOrderGopud (int noorder, int Curr, QueueOrder Q);
+
 #endif

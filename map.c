@@ -96,7 +96,7 @@ Graph CreatedGraph(char* filename){
     for (i = 0 ; i < jml ; i++){
         for (j = 0 ; j < jml ; j++){
             if (Grf[i][j]==1){
-                AddLink (&G, i+1, j+1);
+                AddLink(&G, i+1, j+1);
             }
         }
     }

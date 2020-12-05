@@ -344,7 +344,7 @@ void PrintInfo (List L)
     }
 }
 
-int NbElmt (List L)
+int NbElmtL (List L)
 /*	Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 {
     int count;
@@ -544,16 +544,16 @@ void PecahList (List *L1, List *L2, List L)
 
     CpAlokList(L, L1);
     CpAlokList(L, L2);
-    if ((NbElmt(L) % 2) == 1) { // ganjil
-        for (i=1; i<= ((NbElmt(L) + 1) /2); i++) {
+    if ((NbElmtL(L) % 2) == 1) { // ganjil
+        for (i=1; i<= ((NbElmtL(L) + 1) /2); i++) {
             DeleteLast(L1, &P);
         }
-        for (i=1; i<= ((NbElmt(L) - 1) /2); i++) {
+        for (i=1; i<= ((NbElmtL(L) - 1) /2); i++) {
             DeleteFirst(L2, &P);
         }
     }
     else {
-        for (i=1; i<= ((NbElmt(L)) /2); i++) {
+        for (i=1; i<= ((NbElmtL(L)) /2); i++) {
             DeleteLast(L1, &P);
             DeleteFirst(L2, &P);
         }

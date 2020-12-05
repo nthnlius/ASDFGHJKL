@@ -13,7 +13,7 @@ void MakeEmpty(TabInt *T, int maxeldin)
     maxeldin(*T) = maxeldin;
 }
 
-void Dealokasi(TabInt *T)
+void DealokasiAr(TabInt *T)
 {
     /* I.S. T terdefinisi; */
     /* F.S. TI(T) dikembalikan ke system, MaxEl(T)=0; Neff(T)=0 */

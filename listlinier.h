@@ -171,7 +171,7 @@ void PrintInfo (List L);
 	Jika list kosong, hanya menuliskan "[]"
 */
 
-int NbElmt (List L);
+int NbElmtL (List L);
 /*	Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
 // Prekondisi untuk Max/Min/rata-rata : List tidak kosong 
