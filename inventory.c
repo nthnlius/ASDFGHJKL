@@ -490,37 +490,37 @@ void shop(TabInt* T, long *jumlahuang){
 
     // (*T).A[i] melambangkan nama barang, dan (*T).TI[i] adalah jumlah inventory
     (*T).A[1] = "Asus Prime 27";                   (*T).A[17] = "Asus ROG Case Limited";
-    (*T).TI[1] = 9;                                (*T).TI[17] = 8;
+    (*T).TI[1] = 1;                                (*T).TI[17] = 1;
     (*T).A[2] = "AsusROG Crosshair";               (*T).A[18] = "IBox Case Ori";
-    (*T).TI[2] = 8;                                (*T).TI[18] = 6;
+    (*T).TI[2] = 1;                                (*T).TI[18] = 1;
     (*T).A[3] = "GigaByte B365M";                  (*T).A[19] = "Samsung Case UX";
-    (*T).TI[3] = 6;                                (*T).TI[19] = 9;    
+    (*T).TI[3] = 1;                                (*T).TI[19] = 1;    
     (*T).A[4] = "GigaByte B450M";                  (*T).A[20] = "Asus EXP Case";
-    (*T).TI[4] = 7;                                (*T).TI[20] = 8;
+    (*T).TI[4] = 1;                                (*T).TI[20] = 1;
     (*T).A[5] = "Intel core I3 7020";              (*T).A[21] = "NVIDIA 1080 GTX"; 
-    (*T).TI[5] = 6;                                (*T).TI[21] = 8;
+    (*T).TI[5] = 1;                                (*T).TI[21] = 1;
     (*T).A[6] = "AMD Ryzen 3";                     (*T).A[22] = "Celeron 2030 X";
-    (*T).TI[6] = 5;                                (*T).TI[22] = 6;
+    (*T).TI[6] = 1;                                (*T).TI[22] = 1;
     (*T).A[7] =  "Intel Core I5 9070";             (*T).A[23] = "Intel 620 UHD";
-    (*T).TI[7] = 7;                                (*T).TI[23] = 7;
+    (*T).TI[7] = 1;                                (*T).TI[23] = 1;
     (*T).A[8] = "AMD Ryzen 7";                     (*T).A[24] = "NVIDA Geforce 2080 TI";
-    (*T).TI[8] = 6;                                (*T).TI[24] = 8;
+    (*T).TI[8] = 1;                                (*T).TI[24] = 1;
     (*T).A[9] = "Samsung KKN 4GB";                 (*T).A[25] = "Samsung 1 TB SATA"; 
-    (*T).TI[9] = 7;                                (*T).TI[25] = 9; 
+    (*T).TI[9] = 1;                                (*T).TI[25] = 1; 
     (*T).A[10] = "Asus DSA 4GB";                   (*T).A[26] = "ASUS STRG 500 GB";    
-    (*T).TI[10] = 6;                               (*T).TI[26] = 8;
+    (*T).TI[10] = 1;                               (*T).TI[26] = 1;
     (*T).A[11] = "Intel DI 4GB";                   (*T).A[27] = "Dell SSD 250 GB";
-    (*T).TI[11] = 8;                               (*T).TI[27] = 9;
+    (*T).TI[11] = 1;                               (*T).TI[27] = 1;
     (*T).A[12] = "Asus PNR 4GB";                   (*T).A[28] = "Samsung SSD 500 GB";
-    (*T).TI[12] = 5;                               (*T).TI[28] = 7;
+    (*T).TI[12] = 1;                               (*T).TI[28] = 1;
     (*T).A[13] = "Asus Cooler Fan";                (*T).A[29] = "ATX 450 Watt"; 
-    (*T).TI[13] = 9;                               (*T).TI[29] = 9;
+    (*T).TI[13] = 1;                               (*T).TI[29] = 1;
     (*T).A[14] = "Samsung Ultra Fan";              (*T).A[30] = "ANS 500 Watt";
-    (*T).TI[14] = 6;                               (*T).TI[30] = 7;
+    (*T).TI[14] = 1;                               (*T).TI[30] = 1;
     (*T).A[15] = "Eyota Fan";                      (*T).A[31] = "AVU Power 500 Watt";
-    (*T).TI[15] = 7;                               (*T).TI[31] = 8; 
+    (*T).TI[15] = 1;                               (*T).TI[31] = 1; 
     (*T).A[16] = "Alseye H120D";                   (*T).A[32] = "Hein Power Supply 450 Watt";
-    (*T).TI[16] = 8;                               (*T).TI[32] = 9;
+    (*T).TI[16] = 1;                               (*T).TI[32] = 1;
 
     (*T).Neff = 32;
     
@@ -656,9 +656,9 @@ boolean checkstack(Stack S, QueueOrder Q){
     checkall = (checkmotherboard && checkcpu && checkmemory && checkcooler && checkcases && checkgpu && checkstorage && checkpsu);
     return (checkall);
 }
-void PuntenGopud(TabInt *T, int *noplg, int Posisi, unsigned long *duit, int *honor){
+void PuntenGopud(TabInt *T, int *noplg, int Posisi, unsigned long *duit, int *honor, int noorder){
     if (((*noplg)+2) != Posisi){
-        printf("Salah tempat, Mas. saya ga pesan gopud\n");
+        printf("Salah tempat, Mas.\n");
     }
     else {
         if (strcmp((*T).A[(*T).Neff], "Pesanan")==0){
@@ -666,7 +666,7 @@ void PuntenGopud(TabInt *T, int *noplg, int Posisi, unsigned long *duit, int *ho
             *duit += *honor;
             *honor =0;
             *noplg = -999;
-            printf("Gopud sudah terkirim. Sekarang anda diusir customer. \n");
+            printf("Pesanan #%d telah dikirim. \n", noorder);
         }
         else {
             printf("Pelanggan ngambek dikarenakan pesanan tidak sesuai aplikasi \n");
@@ -682,7 +682,7 @@ void CheckOrderGopud (int noorder, int Curr, QueueOrder Q){
         addressOrder P;
         P = HeadOrder(Q);
         printf("Nomor Order : %d\n", noorder);
-        printf("Pesanan untuk Customer %d \n", InfoPart(P, 0));
+        printf("Pesanan untuk Customer %d \n", InfoPart(P, 0)+1);
         printf("Invoice : %d \n", HitungHonor(P));
         PrintKomponen(P);
     }

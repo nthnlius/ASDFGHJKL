@@ -12,8 +12,9 @@ void PrintCommandBase(){
     printf("5. REMOVECOMPONENT\n");
     printf("6. STATUS\n");
     printf("7. CHECKORDER\n");
-    printf("8. END_DAY\n");
-    printf("9. EXIT\n");
+    printf("8. MAP\n");
+    printf("9. END_DAY\n");
+    printf("10. EXIT\n");
     printbatas();
 }
 void PrintCommandShop(){
@@ -21,8 +22,9 @@ void PrintCommandShop(){
     printf("1. MOVE\n");
     printf("2. SHOP\n");
     printf("3. STATUS\n");
-    printf("4. END_DAY\n");
-    printf("5. EXIT\n");
+    printf("4. MAP\n");
+    printf("5. END_DAY\n");
+    printf("6. EXIT\n");
     printbatas();
 }
 void PrintCommandCustomer(){
@@ -30,7 +32,8 @@ void PrintCommandCustomer(){
     printf("1. MOVE\n");
     printf("2. DELIVER\n");
     printf("3. STATUS\n");
-    printf("4. END_DAY\n");
-    printf("5. EXIT\n");
+    printf("4. MAP\n");
+    printf("5. END_DAY\n");
+    printf("6. EXIT\n");
     printbatas();
 }

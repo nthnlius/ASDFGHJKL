@@ -57,7 +57,7 @@ Address Alokasi (infotypeList X);
 	Jika alokasi gagal, mengirimkan Nil
 */
 
-void Dealokasi (Address *P);
+// void Dealokasi (Address *P);
 /*	I.S. P terdefinisi
 	F.S. P dikembalikan ke sistem
 	Melakukan dealokasi/pengembalian Address P
@@ -171,7 +171,7 @@ void PrintInfo (List L);
 	Jika list kosong, hanya menuliskan "[]"
 */
 
-int NbElmtL (List L);
+// int NbElmt (List L);
 /*	Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
 // Prekondisi untuk Max/Min/rata-rata : List tidak kosong 

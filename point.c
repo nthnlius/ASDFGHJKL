@@ -5,6 +5,7 @@
 #include "boolean.h"
 #include "math.h"
 #include "point.h"
+#include <stdlib.h>
 
 /* *** Notasi Akses: Selektor POINT *** */
 #define Absis(P) (P).X
@@ -119,11 +120,66 @@ void Geser (POINT *P, float deltaX, float deltaY)
 float Jarak0 (POINT P)
 /* Menghitung jarak P ke (0,0) */
 {
-    
+    return 0;
 }
 
 float Panjang (POINT P1, POINT P2)
 /* Menghitung panjang garis yang dibentuk P1 dan P2. */
 {
-    
+    return 0;
 }
+
+void EmptyPoint(ListPoint* L){
+    FirstPoint(*L) == NilPoint;
+}
+boolean IsPointEmpty (ListPoint L){
+    return (FirstPoint(*L)==NilPoint);
+}
+AddressP AlokasiPoint (POINT P1)
+{
+    AddressP P;
+    P = (AddressP)malloc(sizeof(ElmtPoint));
+    if (P!=NilPoint){
+        InfoPoint(P)=P1;
+        NextPoint (P)=Nil;
+    }
+    else {
+        1 != 2;
+    }
+}
+void Dealokasi (AddressP P){
+    free(P);
+}
+
+void InsertFirstPoint (ListPoint *L, AddressP P){
+    if (IsPointEmpty(*L)){
+        FirstPoint(*L) = P;
+        NextPoint(P) = NilPoint;
+    }
+}
+void InsertLastPoint (ListPoint *L, AddressP P){
+    if (IsPointEmpty(*L)){
+        InsertFirst (L, P);
+    }
+    else{
+        AddressP P1;
+        P1 = FirstPoint(*L);
+        while (Next(P1)!=NilPoint){
+            P1 = NextPoint(P1);
+        }
+        NextPoint(P1)=P;
+        NextPoint(P)=NilPoint;
+    }
+}
+
+// int main(){
+//     POINT P1, P2, P3, P4;
+//     ListPoint L;
+//     EmptyPoint(&L);
+//     Absis(P1) = 3;
+//     Absis(P2) = 2;
+//     Ordinat(P1)=3;
+//     Ordinat(P2)=2;
+//     Absis(P3) = 0;
+//     Absis(P4) = 1
+// }

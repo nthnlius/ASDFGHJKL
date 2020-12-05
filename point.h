@@ -7,14 +7,29 @@
 
 #include "boolean.h"
 
+#define NilPoint NULL
 typedef struct { 
 	float X; /* absis   */
 	float Y; /* ordinat */
 } POINT;
+typedef struct TElmtPoint *AddressP ;
+typedef struct TElmtPoint{
+   POINT infopoint;
+   AddressP nextpoint;
+}ElmtPoint;
+typedef struct {
+   AddressP FirstPoint;
+}ListPoint;
 
 /* *** Notasi Akses: Selektor POINT *** */
 #define Absis(P) (P).X
 #define Ordinat(P) (P).Y
+
+/* Notasi Akses : Selektor List */
+
+#define FirstPoint(L) (L).FirstPoint
+#define NextPoint(P) (P)->nextpoint
+#define InfoPoint(P) (P)->infopoint
         
 /* *** DEFINISI PROTOTIPE PRIMITIF *** */
 /* *** Konstruktor membentuk POINT *** */
@@ -65,6 +80,13 @@ float Jarak0 (POINT P);
 /* Menghitung jarak P ke (0,0) */
 float Panjang (POINT P1, POINT P2);
 /* Menghitung panjang garis yang dibentuk P1 dan P2. */
+
+void EmptyPoint(ListPoint* L);
+boolean IsPointEmpty (ListPoint L);
+AddressP AlokasiPoint (POINT P1);
+void DealokasiPoint (AddressP P);
+void InsertFirstPoint (ListPoint *L, AddressP P);
+void InsertLastPoint (ListPoint *L, AddressP P);
 
 
 #endif

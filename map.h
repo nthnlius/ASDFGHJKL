@@ -2,6 +2,7 @@
 #define __MAP_H__
 
 #include "matriks.h"
+#include "graph.h"
 
 int ReadInt(char * A);
 /* Fungsi ini berfungsi untuk mengubah string menjadi integer
@@ -16,4 +17,6 @@ MATRIKS ReadFileMap(char* filename);
        Spesifikasi Tugas Besar/ */
 
 int bacajumlahbuilding(char* filename);
+Graph CreateGraph(char* filename);
+int PINDAH(Graph G, int Posisi);
 #endif

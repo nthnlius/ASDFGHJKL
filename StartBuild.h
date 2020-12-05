@@ -21,7 +21,7 @@ void StartBuild(QueueOrder * Q, int *CurrentlyBuilt, Stack *S, int *nb, int *hon
   F.S. CurrentlyBuilt terdefinisi sebagai Head(Q) jika 
        Head(Q) != Nil. */
 
-void FinishBuild(QueueOrder * Q, int *X, Stack *S, TabInt *T);
+void FinishBuild(QueueOrder * Q, int *X, Stack *S, TabInt *T, int noorder);
 /*  menyelesaikan build.
     Jika Stack sesuai dengan Head(Q), maka
     membebaskan memori Head(Q), me-nil-kan X.

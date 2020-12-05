@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include "stack.h"
-#include "mesinkata.h"
-#include "mesinkarakter.h"
 /* *** Konstruktor/Kreator *** */
 Stack CreateEmptyStack()
 /* I.S. Sembarang */

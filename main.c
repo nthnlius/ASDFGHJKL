@@ -38,14 +38,15 @@ int main(){
             //printf("1\n");
     MakeEmpty(&Inventory, 100);  
     Inventory = masukinisi();
-    int antri = 0;
-    int hargajob = 50000;
-    int nomororder =0;
+    int hargajob = 0;
+    int nomororder = 1;
     int jmlorder=0;
     int i;
     Stack Komponen;
     Komponen = CreateEmptyStack();
     int noplg=-999;
+    Graph G;
+    G = CreateGraph ("map.txt");
     
     QueueOrder Pesanan;
     EmptyOrder(&Pesanan);
@@ -55,7 +56,8 @@ int main(){
         Posisi =0;
         printf("Day - %d\n", CountDay);
         DayENDED=false;
-        jmlorder = rand() % (3)+2;
+        //jmlorder = rand() % (3)+2;
+        jmlorder = 0;
         for (i=0;i<=jmlorder;i++){
             P = MakeOrder();
             EnqueueOrder (&Pesanan, P);
@@ -68,8 +70,8 @@ int main(){
                 if (strcmp(CKata.TabKata, "MOVE")==0){
                     //MOVE movean
                     //Posisi berubah
-                    Posisi = rand() % (Jumbuild);
-                    printf("Kamu sekarang ada di building ke - %d", Posisi);
+                    Posisi = PINDAH(G, Posisi+1);
+                    //printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STARTBUILD")==0){
                     StartBuild(&Pesanan, &CurrentlyBuilt, &Komponen, &nomororder, &hargajob, Inventory, &noplg);
@@ -90,7 +92,7 @@ int main(){
                     Posisi =999;
                 }
                 else if (strcmp(CKata.TabKata, "FINISHBUILD")==0){
-                    FinishBuild(&Pesanan , &CurrentlyBuilt, &Komponen, &Inventory);
+                    FinishBuild(&Pesanan , &CurrentlyBuilt, &Komponen, &Inventory, nomororder);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
@@ -100,9 +102,9 @@ int main(){
                     //PrintQueueLL(Komponen);
                     CheckOrderGopud (jmlorder, CurrentlyBuilt, Pesanan);
                 }
-                else if (strcmp(CKata.TabKata, "SHOP")==0){
-                    Posisi = 1;
-                }
+                // else if (strcmp(CKata.TabKata, "SHOP")==0){bantuan untuk bypass ke shop saat movenya masih dirandom
+                //     Posisi = 1;
+                // }
                 // else if (strcmp(CKata.TabKata, "CUSTOMER")==0){
                 //     Posisi = rand() % (10);
                 // }
@@ -143,25 +145,28 @@ int main(){
                 }
                 else if(strcmp(CKata.TabKata, "MOVE")==0){
                     //Move;
-                    Posisi = rand() % (Jumbuild);
-                    printf("Kamu sekarang ada di building ke - %d", Posisi);
+                    Posisi = PINDAH(G, Posisi+1);
+                    //printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
                     Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg,  Inventory);
+                }else if (strcmp(CKata.TabKata, "MAP")==0){
+                    TulisMATRIKS (Map);
+                    printf("\n");
                 }
                 else {
                     printf("Command salah!\n");
                 }
             }
-            while (Posisi >=2 && Posisi <=10){
+            while (Posisi >=2 && Posisi <=Jumbuild){
                 PrintCommandCustomer();
                 /*1=Move
                   2=BuyItem*/
                 printf("Masukkan Command : ");
                 STARTKATAINPUT();
                 if (strcmp(CKata.TabKata, "DELIVER")==0){
-                    PuntenGopud(&Inventory, &noplg, Posisi, &duit, &hargajob);
+                    PuntenGopud(&Inventory, &noplg, Posisi, &duit, &hargajob, nomororder);
                 }
                 else if (strcmp(CKata.TabKata, "EXIT")==0){
                     start = false;
@@ -174,12 +179,16 @@ int main(){
                 }
                 else if(strcmp(CKata.TabKata, "MOVE")==0){
                     //Move;
-                    Posisi = rand() % (Jumbuild);
-                    printf("Kamu sekarang ada di building ke - %d", Posisi);
+                    Posisi = PINDAH(G, Posisi+1);
+                    //printf("Kamu sekarang ada di building ke - %d", Posisi);
                 }
                 else if (strcmp(CKata.TabKata, "STATUS")==0){
                     //Check Status
                     Status(duit , CurrentlyBuilt, Posisi, nomororder,noplg, Inventory);
+                }
+                else if (strcmp(CKata.TabKata, "MAP")==0){
+                    TulisMATRIKS (Map);
+                    printf("\n");
                 }
                 else {
                     printf("Command salah!\n");
