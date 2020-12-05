@@ -9,7 +9,7 @@ void StartBuild(QueueOrder * Q, int *CurrentlyBuilt, Stack *S, int *nb){
 // void StartBuild(QueueLL Q, int *CurrentlyBuilt){
     if (*CurrentlyBuilt == 0){
         if (HeadOrder(*Q) != NilOrder){
-            CreateEmptyStack(S);
+            *S = CreateEmptyStack();
             PrintKomponen(HeadOrder(*Q));
             *CurrentlyBuilt = 1;
             *nb ++;

@@ -45,20 +45,22 @@ void Push(Stack *S, infotypeS X)
 /* F.S. X menjadi element TOP yang baru, TOP bertambah 1 */
 {
     if (IsStackEmpty(*S) != false){
-        printf("eee : %d\n", (*S).TOP);
-        printf("ddd : %s\n", (*S).T[(*S).TOP]);
+        //printf("eee : %d\n", (*S).TOP);
+        //printf("ddd : %s\n", (*S).T[(*S).TOP]);
         (*S).TOP = (*S).TOP + 1;
         (*S).T[(*S).TOP]=X;
     }
     else{
-        printf("eee : %d\n", (*S).TOP);
-        printf("ddd : %s\n", (*S).T[(*S).TOP]);
-        (*S).TOP = (*S).TOP + 1;
-        (*S).T[(*S).TOP]=X;
+        //printf("eee : %d\n", (*S).TOP);
+        //printf("ddd : %s\n", (*S).T[(*S).TOP]);
+        if (!IsStackFull(*S)){
+            (*S).TOP = (*S).TOP + 1;
+            (*S).T[(*S).TOP]=X;
+        }
     }
     
-        printf("eee : %d\n", (*S).TOP);
-        printf("ddd : %s\n", (*S).T[(*S).TOP]);
+        //printf("eee : %d\n", (*S).TOP);
+        //printf("ddd : %s\n", (*S).T[(*S).TOP]);
 }
 void Pop(Stack *S, infotypeS *X)
 /* Menghapus X dari Stack S. */
@@ -66,12 +68,19 @@ void Pop(Stack *S, infotypeS *X)
 /* F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */
 {
     if ((*S).TOP == 0){
-        *X = (*S).T[(*S).TOP-1];
+        //printf("Athena\n");
+        *X = (*S).T[(*S).TOP];
+        //printf("Demeter\n");
         (*S).TOP = NilS;
+        //printf("Hades\n");
+        //printf("%d \n", (*S).TOP);
     }
     else{
-        *X=(*S).T[(*S).TOP -1];
+        //printf("Zeus\n");
+        *X=(*S).T[(*S).TOP];
+        //printf("Poseidon\n");
         (*S).TOP -- ;
+        //printf("Ares\n");
     }
 }
 
@@ -104,16 +113,22 @@ FS . Tercipta Stack Sout dengan elemen sama persis dengan Stack S */
     Stack Stemp;
     infotypeS X;
     Stemp = CreateEmptyStack();
+    *Sout = CreateEmptyStack();
+    int i=0;
     while (!IsStackEmpty(*S)){
-    printf("aaa : %d\n", Stemp.TOP);
-    printf("bbb : %s\n", (*S).T[(*S).TOP]);
-    printf("ccc : %d\n", (*S).TOP);
+    // printf("aaa : %d\n", Stemp.TOP);
+    // printf("bbb : %s\n", (*S).T[(*S).TOP]);
+    // printf("ccc : %d\n", (*S).TOP);
         Push(&Stemp, (*S).T[(*S).TOP]);
         Pop(S, &X);
     }
+    //printf("mabar\n");
     while (!IsStackEmpty(Stemp)){
         Push (S, Stemp.T[Stemp.TOP]);
+        //printf("anjay mabar = %s \n", Stemp.T[Stemp.TOP]);
         Push (Sout, Stemp.T[Stemp.TOP]);
+        //i++;
+        //printf("%d\n",i);
         Pop(&Stemp, &X);
     }
 }
@@ -121,7 +136,8 @@ FS . Tercipta Stack Sout dengan elemen sama persis dengan Stack S */
 void InversStack(Stack S, Stack * Sout){
     Stack Stemp;
     infotypeS X;
-    CreateEmptyStack(&Stemp);
+    Stemp = CreateEmptyStack();
+    *Sout = CreateEmptyStack();
     CopyStack(&S, &Stemp);
     while (!IsStackEmpty(Stemp)){
         Push(Sout, Stemp.T[Stemp.TOP]);
@@ -132,8 +148,8 @@ void InversStack(Stack S, Stack * Sout){
 void PrintStack(Stack * S){
     Stack Stemp;
     infotypeS X; //variabel dummy untuk memenuhi parameter Pop
-    CreateEmptyStack(&Stemp);
-    CopyStack(S, &Stemp);
+    Stemp = CreateEmptyStack();
+    InversStack(*S, &Stemp);
     printf("[");
     //printf("aaaa : %d", Stemp.TOP);
     if (!IsStackEmpty(Stemp)){
@@ -147,41 +163,42 @@ void PrintStack(Stack * S){
     printf("]\n");
 }
 
-int main(void){
-    Stack S, S1;
-    infotypeS A, B, C, D, E, F, G, H, I;
-    printf("Masukkan Kata : ");
-    STARTKATAINPUT();
-    S=CreateEmptyStack();
-    //printf("aaa : %d\n", S.TOP);
-    int i;
-    // for (i=0; i <MaxEl; i++){
-    //     printf("bbbb : %s,", S.T[i]);
-    // }
-    Push (&S, CKata.TabKata);
-    CreateEmptyStack(&S1);
-    CopyStack(&S, &S1);
-    //PrintStack(S); 
-    //Push(&S, A);
-    // printf("%c\n", A);
-    // printf("%c\n", B);
-    // printf("%c\n", C);
-    // printf("%c\n", D);
-    // printf("%c\n", E);
-    // printf("%c\n", F);
-    // printf("%c\n", G);
-    // printf("%c\n", H);
-    // printf("%c\n", I);
-    // Top(S)=A;
-    // printf("%c\n", Top(S));
-    // Push(&S, B);
-    // Push(&S, C);
-    // Push(&S, D);
-    // Push(&S, E);
-    // Push(&S, F);
-    // Push(&S, G);
-    // Push(&S, H);
-    // Push(&S, I);
-    //printf("1\n");
-    //PrintStack(&S);
-}
+// int main(void){
+//     Stack S, S1;
+//     infotypeS A, B, C, D, E, F, G, H, I;
+//     printf("Masukkan Kata : ");
+//     STARTKATAINPUT();
+//     S=CreateEmptyStack();
+//     //printf("aaa : %d\n", S.TOP);
+//     int i;
+//     // for (i=0; i <MaxEl; i++){
+//     //     printf("bbbb : %s,", S.T[i]);
+//     // }
+//     Push (&S, CKata.TabKata);
+//     S1 = CreateEmptyStack();
+//     // CopyStack(&S, &S1);
+//     InversStack(S, &S1);
+//     //PrintStack(S); 
+//     //Push(&S, A);
+//     // printf("%c\n", A);
+//     // printf("%c\n", B);
+//     // printf("%c\n", C);
+//     // printf("%c\n", D);
+//     // printf("%c\n", E);
+//     // printf("%c\n", F);
+//     // printf("%c\n", G);
+//     // printf("%c\n", H);
+//     // printf("%c\n", I);
+//     // Top(S)=A;
+//     // printf("%c\n", Top(S));
+//     // Push(&S, B);
+//     // Push(&S, C);
+//     // Push(&S, D);
+//     // Push(&S, E);
+//     // Push(&S, F);
+//     // Push(&S, G);
+//     // Push(&S, H);
+//     // Push(&S, I);
+//     //printf("1\n");
+//     PrintStack(&S);
+// }

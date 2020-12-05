@@ -22,7 +22,7 @@ typedef struct
     addressS TOP;
 } Stack;
 
-/* Definisi stack S kosong : S.TOP = Nil */
+/* Definisi stack S kosong : S.TOP = NilS */
 /* S.TOP = jumlah element stack */
 /* S.T[S.TOP-1] = element paling atas */
 

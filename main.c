@@ -21,7 +21,7 @@
 int main(){
     boolean start = true;
     int Posisi = 0;
-    long duit = 0;
+    unsigned long duit = 0;
     /*  0= base
         1 = shop
         2 = customer
@@ -44,7 +44,7 @@ int main(){
     int jmlorder=0;
     int i;
     Stack Komponen;
-    CreateEmptyStack(&Komponen);
+    Komponen = CreateEmptyStack();
     
     QueueOrder Pesanan;
     EmptyOrder(&Pesanan);
