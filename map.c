@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "matriks.h"
+#include "graph.h"
 
 int ReadInt(char * A){
     int x = atoi(A);
@@ -67,8 +68,59 @@ MATRIKS ReadFileMap(char* filename){
     //TulisMATRIKS(yee);
     return yee;
 }
+
+Graph CreatedGraph(char* filename){
+    Graph G;
+    CreateEmptyGraph(&G);
+    STARTKATAFILE(filename); // 
+    ADVKATA();
+    ADVKATA();
+    int i = 0;
+    int j = 0;
+    int jml = bacajumlahbuilding(filename);
+    int Grf[jml][jml];
+    for (i=1 ; i<= jml ; i++){
+        ADVKATA();
+        ADVKATA();
+        ADVKATA();
+    }
+            ADVKATA();
+    for (i = 0 ; i < jml; i++){
+        for (j = 0; j < jml ; j++){
+            Grf [i][j] = ReadInt(CKata.TabKata);
+            //printf("CKATA.TabKata : %s \n", CKata.TabKata);
+            ADVKATA();
+        }
+    }
+    initGraph(&G, jml);
+    for (i = 0 ; i < jml ; i++){
+        for (j = 0 ; j < jml ; j++){
+            if (Grf[i][j]==1){
+                AddLink (&G, i+1, j+1);
+            }
+        }
+    }
+    return G;
+    //PrintLink(G, 1);
+}
 // int main(){
 //     MATRIKS map;
 //     map = ReadFileMap("map.txt");
 //     TulisMATRIKS(map);
 // }
+int main(){
+    Graph G;
+    CreateEmptyGraph(&G);
+    G = CreatedGraph("map.txt");
+    printf("1\n");
+    int i=0;
+    int j = 0;
+    int Posisi = 2;
+    int jml = bacajumlahbuilding("map.txt");
+    for (i = 0 ; i < jml;i++){
+        if (IsLinked(G, Posisi, i+1)){
+            printf("%d. Bangunan %d\n", j+1, i+1);
+            j++;
+        }
+    }
+}

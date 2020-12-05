@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "graph.h"
+#include "listlinier.h"
 
 void CreateEmptyGraph(Graph *G){
     /* KAMUS LOKAL */
@@ -111,6 +112,7 @@ void PrintLink(Graph G, infotypeList X){
     /* ALGORITMA */
     P = FirstGraph(G);
     while (InfoGraph(P) != X) {
+    //printf("1\n");
         P = NextGraph(P);
     }
     L = Link(P);

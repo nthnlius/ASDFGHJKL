@@ -7,11 +7,11 @@
 //Konstanta
 #define Nil NULL
  
-typedef int Infotype;
+typedef int infotypeList;
 typedef struct TElmtList *Address;
 
 typedef struct TElmtList {
-	Infotype 	info;
+	infotypeList 	info;
 	Address 	next;
 } ElmtList;
 
@@ -45,12 +45,12 @@ typedef struct {
 boolean IsListEmpty (List L);
 /* Mengirim true jika list kosong */
 
-void CreateList (List *L);
+void CreateEmptyList (List *L);
 /*	I.S. sembarang
 	F.S. Terbentuk list kosong 
 */
 
-Address Alokasi (Infotype X);
+Address Alokasi (infotypeList X);
 /*	Mengirimkan Address hasil alokasi sebuah elemen
 	Jika alokasi berhasil, maka Address tidak Nil, dan misalnya menghasilkan P, maka
 	Info(P) = X, Next(P) = Nil
@@ -64,7 +64,7 @@ void Dealokasi (Address *P);
 */
 
 // PENCARIAN SEBUAH ELEMEN LIST
-Address Search (List L, Infotype X);
+Address Search (List L, infotypeList X);
 /*	Mencari apakah ada elemen list dengan Info(P) = X
 	Jika ada, mengirimkan Address elemen tersebut
 	Jika tidak ada, mengirimkan Nil
@@ -75,7 +75,7 @@ boolean FSearch (List L, Address P);
 	Mengirimkan true jika ada, false jika tidak ada
 */
 
-Address SearchPrec (List L, Infotype X);
+Address SearchPrec (List L, infotypeList X);
 /*	Mengirimkan Address elemen sebelum elemen yang nilainya = X
 	Mencari apakah ada elemen list dengan Info(P) = X
 	Jika ada, mengirimkan Address Prec, dengan Next(Prec) = P dan Info(P) = X
@@ -86,7 +86,7 @@ Address SearchPrec (List L, Infotype X);
 */
 
 //PENAMBAHAN ELEMEN
-void InsVFirst (List *L, Infotype X);
+void InsVFirst (List *L, infotypeList X);
 /*	I.S. L mungkin kosong
 	F.S. X ditambahkan sebagai elemen pertama L
 	Proses : Melakukan alokasi sebuah elemen dan menambahkan elemen pertama dengan
@@ -94,7 +94,7 @@ void InsVFirst (List *L, Infotype X);
 	Jika alokasi gagal: I.S.= F.S.
 */
 
-void InsVLast (List *L, Infotype X);
+void InsVLast (List *L, infotypeList X);
 /*	I.S. L mungkin kosong
 	F.S. X ditambahkan sebagai elemen terakhir L
 	Proses : Melakukan alokasi sebuah elemen dan menambahkan elemen list di akhir :
@@ -103,13 +103,13 @@ void InsVLast (List *L, Infotype X);
 */
 
 //PENGHAPUSAN ELEMEN
-void DelVFirst (List *L, Infotype *X);
+void DelVFirst (List *L, infotypeList *X);
 /*	I.S. List L tidak kosong
 	F.S. Elemen pertama list dihapus : nilai info disimpan pada X
 	dan alamat elemen pertama di-dealokasi
 */
 
-void DelVLast (List *L, Infotype *X);
+void DelVLast (List *L, infotypeList *X);
 /*	I.S. list tidak kosong
 	F.S. Elemen terakhir list dihapus : nilai info disimpan pada X
 	dan alamat elemen terakhir di-dealokasi
@@ -141,7 +141,7 @@ void DeleteFirst (List *L, Address *P);
 	First element yang baru adalah suksesor elemen pertama yang lama
 */
 
-void DeleteP (List *L, Infotype X);
+void DeleteP (List *L, infotypeList X);
 /*	I.S. Sembarang
 	F.S. Jika ada elemen list ber-Address P, dengan Info(P) = X
 	Maka P dihapus dari list dan di-dealokasi
@@ -175,13 +175,13 @@ int NbElmt (List L);
 /*	Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
 // Prekondisi untuk Max/Min/rata-rata : List tidak kosong 
-Infotype Max (List L);
+infotypeList Max (List L);
 /*	Mengirimkan nilai Info(P) yang maksimum */
 
 Address AdrMax (List L);
 /*	Mengirimkan address P, dengan Info(P) yang bernilai maksimum */
 
-Infotype Min (List L);
+infotypeList Min (List L);
 /*	Mengirimkan nilai Info(P) yang minimum */
 
 Address AdrMin (List L);

@@ -1,8 +1,10 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#include "point.c"
+//#include "point.c"
 #include "graph.c"
+#include "listlinier.c"
+
 
 int main(){
     Graph G;
